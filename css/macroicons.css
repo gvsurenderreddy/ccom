@@ -1,0 +1,671 @@
+	.ik_1downarrow {
+		background-image: url(../icons/fila.gif);
+		background-position:  0px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_1rightarrow {
+		background-image: url(../icons/fila.gif);
+		background-position:  16px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_1uparrow {
+		background-image: url(../icons/fila.gif);
+		background-position:  32px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_abierto {
+		background-image: url(../icons/fila.gif);
+		background-position:  48px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_activo {
+		background-image: url(../icons/fila.gif);
+		background-position:  64px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_addcliente {
+		background-image: url(../icons/fila.gif);
+		background-position:  80px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_ark {
+		background-image: url(../icons/fila.gif);
+		background-position:  96px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_attach {
+		background-image: url(../icons/fila.gif);
+		background-position:  112px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_borrarcliente {
+		background-image: url(../icons/fila.gif);
+		background-position:  128px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_busca1 {
+		background-image: url(../icons/fila.gif);
+		background-position:  144px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_button_cancel {
+		background-image: url(../icons/fila.gif);
+		background-position:  160px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_button_ok {
+		background-image: url(../icons/fila.gif);
+		background-position:  176px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_candadoabierto16 {
+		background-image: url(../icons/fila.gif);
+		background-position:  192px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_candadocerrado16 {
+		background-image: url(../icons/fila.gif);
+		background-position:  208px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_cdrom_mount {
+		background-image: url(../icons/fila.gif);
+		background-position:  224px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_cerrado {
+		background-image: url(../icons/fila.gif);
+		background-position:  240px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_channel1 {
+		background-image: url(../icons/fila.gif);
+		background-position:  256px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_cliente16 {
+		background-image: url(../icons/fila.gif);
+		background-position:  272px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_clock {
+		background-image: url(../icons/fila.gif);
+		background-position:  288px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_conexion {
+		background-image: url(../icons/fila.gif);
+		background-position:  304px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_config16 {
+		background-image: url(../icons/fila.gif);
+		background-position:  320px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_contacto {
+		background-image: url(../icons/fila.gif);
+		background-position:  336px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_contents {
+		background-image: url(../icons/fila.gif);
+		background-position:  352px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_del {
+		background-image: url(../icons/fila.gif);
+		background-position:  368px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_desactivado {
+		background-image: url(../icons/fila.gif);
+		background-position:  384px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_document {
+		background-image: url(../icons/fila.gif);
+		background-position:  400px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_ed {
+		background-image: url(../icons/fila.gif);
+		background-position:  416px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_editcopy {
+		background-image: url(../icons/fila.gif);
+		background-position:  432px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_editcut {
+		background-image: url(../icons/fila.gif);
+		background-position:  448px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_editdelete {
+		background-image: url(../icons/fila.gif);
+		background-position:  464px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_edit {
+		background-image: url(../icons/fila.gif);
+		background-position:  480px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_ed_up {
+		background-image: url(../icons/fila.gif);
+		background-position:  496px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_enventa16 {
+		background-image: url(../icons/fila.gif);
+		background-position:  512px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_enventa16gray {
+		background-image: url(../icons/fila.gif);
+		background-position:  528px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_error {
+		background-image: url(../icons/fila.gif);
+		background-position:  544px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_estadisticas {
+		background-image: url(../icons/fila.gif);
+		background-position:  560px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_exit16 {
+		background-image: url(../icons/fila.gif);
+		background-position:  576px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_facturas {
+		background-image: url(../icons/fila.gif);
+		background-position:  592px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_filefind {
+		background-image: url(../icons/fila.gif);
+		background-position:  608px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_find16 {
+		background-image: url(../icons/fila.gif);
+		background-position:  624px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_find16 {
+		background-image: url(../icons/fila.gif);
+		background-position:  640px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_forward {
+		background-image: url(../icons/fila.gif);
+		background-position:  656px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_group {
+		background-image: url(../icons/fila.gif);
+		background-position:  672px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_health {
+		background-image: url(../icons/fila.gif);
+		background-position:  688px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_help {
+		background-image: url(../icons/fila.gif);
+		background-position:  704px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_helpred {
+		background-image: url(../icons/fila.gif);
+		background-position:  720px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_hi1 {
+		background-image: url(../icons/fila.gif);
+		background-position:  736px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_important {
+		background-image: url(../icons/fila.gif);
+		background-position:  752px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_inbox {
+		background-image: url(../icons/fila.gif);
+		background-position:  768px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_info {
+		background-image: url(../icons/fila.gif);
+		background-position:  784px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_kbackgammon_engine {
+		background-image: url(../icons/fila.gif);
+		background-position:  800px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_keditbookmarks {
+		background-image: url(../icons/fila.gif);
+		background-position:  816px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_kpackage {
+		background-image: url(../icons/fila.gif);
+		background-position:  832px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_listados {
+		background-image: url(../icons/fila.gif);
+		background-position:  848px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_location {
+		background-image: url(../icons/fila.gif);
+		background-position:  864px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_logout {
+		background-image: url(../icons/fila.gif);
+		background-position:  880px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_looknfeel {
+		background-image: url(../icons/fila.gif);
+		background-position:  896px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_mail_delete {
+		background-image: url(../icons/fila.gif);
+		background-position:  912px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_mail_find {
+		background-image: url(../icons/fila.gif);
+		background-position:  928px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_mail_generic {
+		background-image: url(../icons/fila.gif);
+		background-position:  944px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_message {
+		background-image: url(../icons/fila.gif);
+		background-position:  960px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_modcliente {
+		background-image: url(../icons/fila.gif);
+		background-position:  976px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_mundo2 {
+		background-image: url(../icons/fila.gif);
+		background-position:  992px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_network {
+		background-image: url(../icons/fila.gif);
+		background-position:  1008px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_niceinfo {
+		background-image: url(../icons/fila.gif);
+		background-position:  1024px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_ok1 {
+		background-image: url(../icons/fila.gif);
+		background-position:  1040px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_ok1gray {
+		background-image: url(../icons/fila.gif);
+		background-position:  1056px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_package_favourite {
+		background-image: url(../icons/fila.gif);
+		background-position:  1072px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_pcgreen1 {
+		background-image: url(../icons/fila.gif);
+		background-position:  1088px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_pdf16 {
+		background-image: url(../icons/fila.gif);
+		background-position:  1104px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_personal {
+		background-image: url(../icons/fila.gif);
+		background-position:  1120px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_personal {
+		background-image: url(../icons/fila.gif);
+		background-position:  1136px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_player_pause {
+		background-image: url(../icons/fila.gif);
+		background-position:  1152px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_presupuestos {
+		background-image: url(../icons/fila.gif);
+		background-position:  1168px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_producto16 {
+		background-image: url(../icons/fila.gif);
+		background-position:  1184px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_profilesm {
+		background-image: url(../icons/fila.gif);
+		background-position:  1200px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_proveedor16 {
+		background-image: url(../icons/fila.gif);
+		background-position:  1216px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_proveedores {
+		background-image: url(../icons/fila.gif);
+		background-position:  1232px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_remove {
+		background-image: url(../icons/fila.gif);
+		background-position:  1248px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_run {
+		background-image: url(../icons/fila.gif);
+		background-position:  1264px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_spreadsheet {
+		background-image: url(../icons/fila.gif);
+		background-position:  1280px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_stock16 {
+		background-image: url(../icons/fila.gif);
+		background-position:  1296px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_stockfull {
+		background-image: url(../icons/fila.gif);
+		background-position:  1312px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_stock {
+		background-image: url(../icons/fila.gif);
+		background-position:  1328px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_stop {
+		background-image: url(../icons/fila.gif);
+		background-position:  1344px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_tex {
+		background-image: url(../icons/fila.gif);
+		background-position:  1360px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_usuarios {
+		background-image: url(../icons/fila.gif);
+		background-position:  1376px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_wrule {
+		background-image: url(../icons/fila.gif);
+		background-position:  1392px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_yast_partitioner {
+		background-image: url(../icons/fila.gif);
+		background-position:  1408px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_zoom2 {
+		background-image: url(../icons/fila.gif);
+		background-position:  1424px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_ingles.jpg {
+		background-image: url(../icons/fila.gif);
+		background-position:  1440px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_frances {
+		background-image: url(../icons/fila.gif);
+		background-position:  1456px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_spanish {
+		background-image: url(../icons/fila.gif);
+		background-position:  1472px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_parametros {
+		background-image: url(../icons/fila.gif);
+		background-position:  1488px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_home {
+		background-image: url(../icons/fila.gif);
+		background-position:  1504px 0px;
+		width: 16px;
+		height: 16px;
+	}
+
+		.ik_listado {
+		background-image: url(../icons/fila.gif);
+		background-position:  1520px 0px;
+		width: 16px;
+		height: 16px;
+	}

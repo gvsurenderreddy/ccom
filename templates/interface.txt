@@ -1,0 +1,40 @@
+<patTemplate:tmpl name="page">
+<html>
+
+<head>
+	<patTemplate:tmpl name="headers" src="headers.txt" autoload="on" parse="on"/>
+	<script type="text/javascript">
+<!--
+	$(function() {
+		$("#tabs").tabs();
+	});
+-->
+	</script>
+</head>
+<body>
+
+
+
+<div id="tabs">
+<ul>
+<li><a href="modusuarios.php">Usuarios</a></li>
+<li><a href="modchannels.php">Canales</a></li>
+<li><a href="modtasks.php">Tareas</a></li>
+<li><a href="modgrupos.php">Grupos</a></li>
+<li><a href="modpasarelas.php">Pasarelas</a></li>
+<li><a href="modconfig.php">Config. parametros</a></li>
+<li><a href="modcentral.php">Central comunicaciones</a></li>
+<li><a href="modeac.php">Gestion reglas</a></li>
+<li><a href="modlabels.php">Etiquetas</a></li>
+</ul>
+
+
+</div>
+
+
+
+</body>
+
+
+</html>
+</patTemplate:tmpl>

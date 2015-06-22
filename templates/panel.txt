@@ -1,0 +1,111 @@
+
+<patTemplate:tmpl name="list">
+<table  class="enbanner cajalistado"   cellspacing='0' cellpadding='0'   >
+
+<tr class="headListado">
+<th>
+&nbsp;
+</th>
+<th>
+
+<patTemplate:Translate>Test</patTemplate:Translate>
+
+</th><th><patTemplate:Translate>Resultado</patTemplate:Translate></th>
+
+</tr>
+
+
+	<patTemplate:tmpl name="list_entry" type="oddeven">
+	<patTemplate:sub condition="__even">
+
+	<tr class="filaListado {ESTILOCSS} odd">
+	<td width="80"  class="colbtn"> &nbsp;
+	</td>
+	<td>{LABEL} &nbsp;</td>
+	<td><patTemplate:var name="dato" /> &nbsp;</td>
+	</tr>
+	</patTemplate:sub>
+	<patTemplate:sub condition="__odd">
+	<tr class="filaListado {ESTILOCSS} even">
+	<td width="80"  class="colbtn"> &nbsp;
+	</td>
+	<td>{LABEL} &nbsp;</td>
+	<td><patTemplate:var name="dato" /> &nbsp;</td>
+	</tr>
+
+	</patTemplate:sub>
+	</patTemplate:tmpl>
+
+<tr class="rematetabla"><td colspan="4" valign="center">
+&nbsp;<button onclick="visibilizar(this)">Editar</button>
+</td></tr>
+
+</table>
+
+<script>
+
+function visibilizar(este){
+	$(este).addClass("oculto");
+	$("#editando").removeClass("oculto");
+}
+
+
+
+
+</script>
+
+<div class="oculto" id="editando">
+<form action='{MODNAME}.php' method='post' id="validateMe">
+
+<input type='hidden' name='modo' value='guardarcambios' />
+<input type='hidden' name='id_user' value='self' />
+
+
+<table class="cajaedicion"  border="0" cellpadding="0" cellspacing="0">
+<tr class="headListado">
+<td colspan="3"><patTemplate:var name="modoediciontxt" modifier="html8"/></td></tr>
+<tr class="filaListado filaImpar">
+	<td class='col1'>Nombre *</td>
+	<td colspan="2"><input  class='flat required' id="name" style='width: 20em' type='text' name='name'
+	value='<patTemplate:var name="name" modifier="html8"/>'/></td>
+</tr>
+<tr class="filaListado filaPar">
+	<td class='col1'>Apellido 1</td>
+	<td colspan="2"><input  class='flat' id="s_name1" style='width: 20em' type='text' name='s_name1'
+	 value='<patTemplate:var name="s_name1" modifier="html8"/>'/></td>
+</tr>
+<tr class="filaListado filaImpar">
+	<td class='col1'>Apellido 2</td>
+	<td colspan="2"><input  class='flat' id="s_name2" style='width: 20em' type='text' name='s_name2'
+	 value='<patTemplate:var name="s_name2" modifier="html8"/>'/></td>
+</tr>
+<tr class="filaListado filaPar">
+	<td class='col1'>Email *</td>
+	<td colspan="2"><input  class='flat required' id="email" style='width: 12em' type='text' name='email'
+	 value='<patTemplate:var name="email" modifier="html8"/>'/></td>
+</tr>
+<tr class="filaListado filaImpar">
+	<td class='col1'>Teléfono</td>
+	<td colspan="2"><input  class='flat' id="phone" style='width: 12em' type='text' name='phone'
+	 value='<patTemplate:var name="phone" modifier="html8"/>'/></td>
+</tr>
+
+
+
+
+<tr  class="rematetabla">
+<td colspan="4" class="btncell">
+ <input  class="btn ui-state-default ui-corner-all" value="Guardar cambios" type="submit" onclick="return ComprobarDatos()">
+</td>
+</tr>
+
+</table>
+
+
+
+</form>
+
+</div>
+
+
+</patTemplate:tmpl>

@@ -1,0 +1,45 @@
+
+<patTemplate:tmpl name="page">
+
+<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;padding:0px">
+<tr>
+<td>
+<div class="cajaEnlacesSolapas">
+<a id="es_datos" href="#solapa_<patTemplate:var name="id_comm" />" class='solapasel' onclick="return RecargaSolapaModo(<patTemplate:var name="id_comm" />,'datos'  )">Datos</a> |
+<a id="es_documento" href="#solapa_<patTemplate:var name="id_comm" />" onclick="return RecargaSolapaModo(<patTemplate:var name="id_comm" />,'documento'  )">Documento</a> |
+<a id="es_traza" href="#solapa_<patTemplate:var name="id_comm" />" onclick="return RecargaSolapaModo(<patTemplate:var name="id_comm" />,'traza'  )">Traza</a> |
+<a id="es_etiquetas" href="#solapa_<patTemplate:var name="id_comm" />" onclick="return RecargaSolapaModo(<patTemplate:var name="id_comm" />,'etiquetas'  )">Etiquetas</a> |
+<a id="es_riesgo" href="#solapa_<patTemplate:var name="id_comm" />" onclick="return RecargaSolapaModo(<patTemplate:var name="id_comm" />,'riesgo'  )">Riesgo</a> | 
+<a id="es_reenviar" href="#solapa_<patTemplate:var name="id_comm" />" onclick="return RecargaSolapaModo(<patTemplate:var name="id_comm" />,'reenviar'  )">Responder</a>
+</div>
+</td>
+</tr>
+<tr>
+<td id="contenedor2_<patTemplate:var name="id_comm" />">
+{SOLAPADATOS}
+</td>
+</tr>
+</table>
+
+<script>
+
+
+setTimeout(function(){
+		var id_comm = "<patTemplate:var name="id_comm" />";
+		var nombre2 = "#titulo_" + id_comm ;
+		var nombre3 = "#datos_" + id_comm ;
+
+
+		try {
+		$(nombre2).addClass("seleccionado");
+		$(nombre3).addClass("seleccionado_datos");
+		} catch(e) {
+			var t = t+1;
+		};
+},0);
+
+
+</script>
+
+
+</patTemplate:tmpl>

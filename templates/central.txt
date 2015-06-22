@@ -1,0 +1,687 @@
+
+<patTemplate:tmpl name="page">
+<html>
+
+<head>
+<patTemplate:tmpl name="headers" src="headers.txt" autoload="on" parse="on"/>
+
+	<link href="css/menu.css" rel="stylesheet" type="text/css" />	
+	<link href="css/pages/{MODNAME}.php" rel="stylesheet" type="text/css" />
+	<link href="css/greybox/greybox2.css" rel="stylesheet" type="text/css" />
+
+<!-- <script type="text/javascript" src="css/greybox/greybox.js"></script> -->
+
+<!-- <link href="css/tagit/jquery.ui.autocomplete.custom.css" rel="stylesheet" type="text/css" />  -->
+<!--- <link href="css/tagit/custom.css" rel="stylesheet" type="text/css" />  -->
+<!-- <script type="text/javascript" src="js/jquery.jqtransform.js"></script> -->
+
+<!-- <script type="text/javascript" src="js/jquery-ui-1.8.autocomplete.min.js"></script> -->
+<!-- <script type="text/javascript" src="js/tag-it.js"></script> -->
+
+<!-- <script type="text/javascript" src="development-bundle/ui/ui.draggable.js"></script> -->
+<!-- <script type="text/javascript" src="js/jquery.qtip-1.0.0-rc3.js"></script> -->
+
+
+	<script type="text/javascript">
+		var Global = new Object();
+
+		function CargarExtraFlotante(id_comm,tooltip_id){
+					$.ajax({
+							type: "POST",
+							url: "modcentral.php",
+							data: "modo=cargarExtra&id_comm=" + id_comm + "&tooltip_id="+tooltip_id,
+							success: function(datos){
+									try {
+										var obj = eval("(" + datos + ")");
+										//console.dir(obj);
+										if (obj.ok) {
+											$("#"+obj.tooltip_id).html( obj.html );
+										}
+									}catch(e){
+										//alert("ERROR: " + e+ ", code: ...");
+										//alert("Code: "+datos);
+										//console.log("ERROR:" + e + "\n" +datos);
+									}
+							  }
+					});
+			}
+
+
+	function EnviarFiltrosChk(){
+
+			var paso = ((new Date()).getTime() - EnviarFiltrosChk.time );
+
+			if (paso>(EnviarFiltrosChk.retraso-50)){
+				$("#filtros_estados").submit();
+			}
+	}
+
+
+	EnviarFiltrosChk.retraso = 1000;
+
+
+	function genLista(){
+		var changed_str = "";
+		var i = 0;
+
+		$("input.selcomm:checked").each(function(){
+			var newid = $(this).attr("id_comm");
+			changed_str += "," + newid;
+			i++;
+		});
+
+		if (!i) return false;
+
+		$("#list_id_comm").val(changed_str);
+		$("#list_id_comm2").val(changed_str);
+		$("#list_id_comm3").val(changed_str);
+		$("#list_id_comm4").val(changed_str);
+		return true;
+	};
+
+
+	function enviaMe(){
+		var $this = $(this);
+		var et = $this.val();
+
+		if ( !et ) return;
+		if ( et==-1) return;
+
+		var master = $this.data('master');
+		$(master).submit();
+	}
+
+
+	$(function() {
+		var w= $(window).width();//fix for the evil² ie.
+		$("#cabeza").width(w);
+
+		var anchorazonable_txt =(w-165-1) + "px"; 
+
+		$("#cajafiltros").width(anchorazonable_txt);
+		$("#cajafiltros2").width(anchorazonable_txt);
+					
+		$("#lineas_de_comm").css("width", anchorazonable_txt);
+
+		$("#link_central").addClass("pageSelected");
+		$("#cajaaplicadores").hide();
+
+		$("#tramitados_chk").click(function(){ 
+			EnviarFiltrosChk.time = (new Date()).getTime();
+			setTimeout(EnviarFiltrosChk,EnviarFiltrosChk.retraso); 
+		});
+
+		$("#eliminados_chk").click(function(){ 
+			EnviarFiltrosChk.time = (new Date()).getTime();
+			setTimeout(EnviarFiltrosChk,EnviarFiltrosChk.retraso);
+		});
+
+		$("#traspasados_chk").click(function(){ 
+			EnviarFiltrosChk.time = (new Date()).getTime();
+			setTimeout(EnviarFiltrosChk,EnviarFiltrosChk.retraso) 
+		});
+			
+		$("#lista_etiquetas_status").change( enviaMe ).data("master","#etiquetador");
+		$("#lista_status").change( enviaMe ).data("master","#etiquetador3");
+		$("#lista_canales").change( enviaMe ).data("master","#etiquetador_canal");				
+		$("#lista_etiquetas_locations").change( enviaMe ).data("master","#etiquetador4");
+
+		$("#etiquetador").submit( genLista );
+		$("#etiquetador2").submit( genLista );
+		$("#etiquetador3").submit( genLista );
+		$("#etiquetador4").submit( genLista );
+
+		MasLineas.num_lineas	= '<patTemplate:var name="num_lineas"/>';
+		MasLineas.last_id_comm	= '<patTemplate:var name="last_id_comm"/>';//en listados ordenados, indica el id mas bajo visto
+		MasLineas.offset		= 0;//por defecto no hay offset, en listados desordenados, indica el offset de pagina
+		MasLineas.paginasize	= '<patTemplate:var name="paginasize"/>';//tamaño de pagina
+		MasLineas.listadodesordenado = <patTemplate:var name="desordenado"/>;//indica si se ordenan de forma numerica descendiente o no
+
+		$(".selcomm").change(function(este){
+			if ( $('.selcomm:checked').length>0 ){
+				$("#cajaaplicadores").show();
+			} else {
+				$("#cajaaplicadores").hide();
+			}
+		});
+
+
+		$("input[type=text]").css("");
+
+		$(".filaDatos").click( function(){
+			var $this = $(this);
+			var myid = new String( $this.attr("id") );
+			var myid2 = myid.replace("datos_","");
+
+			$("#a_"+myid2).click();
+		});
+
+
+		if ( $.browser.msie ){
+			//"$(document).pngFix();
+			$('.ik').ifixpng();
+		}
+
+
+		Global.altaComentario = $("#altaComentario").clone();
+		$("#altaComentario").remove();
+
+		$("#buscaid_contacto_txt").click( buscaIdContacto );
+
+	});
+
+
+	GB_ANIMATION = false;
+
+	function genBox(){
+		GB_show("Login","login.php?modo=popup",470,600);
+		return false;
+	}
+
+	//break frames, util cuando venimos de un popup de login
+	if (top.location != location) {
+      top.location.href = document.location.href ;
+	}
+
+	function buscaIdContacto(){
+		GB_show("Seleccion cliente","ajax.php?modo=selectcontact&r="+Math.random(),470,600);
+	}
+
+
+	function recogeSeleccion( id, name ) {
+		$("#buscaid_contacto_txt").val(name);
+		$("#buscaid_contacto").val(id);
+		GB_hide();
+	}
+
+	function resetContact(){
+		$("#buscaid_contacto_txt").val("");
+		$("#buscaid_contacto").val(0);
+	}
+
+
+	function CajaOpinar(){
+		GB_Area("<patTemplate:T>Recepción de llamada</patTemplate:T>","opinar","altaComentario",400,600);
+		var receptor = "ECOMM:<patTemplate:var name="user_nombreapellido"/>";
+		$("input[name=aquien]").val(receptor);
+		$("input[name=quien]").val("");
+		$("input[name=escorreoelectronico]").val(0);
+		$("input[name=esllamadarecibida]").val(1);
+		$(".cargafichero").addClass("oculto");
+		$(".focuseame").delay(1).focus();
+		$(".carganotas").removeClass("oculto");
+		$(".mododeenvio").val("agnadirllamada");
+
+		return false;
+	}
+
+	function CajaLlamar(){
+		GB_Area("<patTemplate:T>Recepción realizada</patTemplate:T>","opinar","altaComentario",400,600);
+
+		var receptor = "ECOMM:<patTemplate:var name="user_nombreapellido"/>";
+		$("input[name=quien]").val(receptor);
+		$("input[name=aquien]").val("");
+		$("input[name=esllamadarecibida]").val(0);
+		$("input[name=escorreoelectronico]").val(0);
+		$(".mododeenvio").val("agnadirllamada");
+		$(".cargafichero").addClass("oculto");
+		$(".carganotas").removeClass("oculto");
+		$(".focuseame2").delay(1).focus();
+
+		return false;
+	}
+
+	function EscribirEmails(){
+		GB_Area("<patTemplate:T>Envio de correo</patTemplate:T>","opinar","altaComentario",400,600);
+
+		var receptor = "ECOMM:<patTemplate:var name="user_nombreapellido"/>";
+		$("input[name=quien]").val(receptor);
+		$("input[name=aquien]").val("");
+		$("input[name=esllamadarecibida]").val(0);
+		$("input[name=escorreoelectronico]").val(1);
+		$(".mododeenvio").val("enviaremail");	
+
+		$(".cargafichero").addClass("oculto");
+
+		$(".bloquedatocorreo").removeClass("oculto");
+		$(".carganotas").removeClass("oculto");
+
+		$(".focuseame2").delay(1).focus();
+
+		return false;
+	}
+
+	function EscribirFax(){
+		GB_Area("<patTemplate:T>Envio de fax</patTemplate:T>","opinar","altaComentario",400,600);
+
+		var receptor = "ECOMM:<patTemplate:var name="user_nombreapellido"/>";
+		$("input[name=quien]").val(receptor);
+		$("input[name=aquien]").val("");
+		$("input[name=esllamadarecibida]").val(0);
+		$("input[name=escorreoelectronico]").val(1);
+		//$(".mododeenvio").val("enviaremail");
+		$(".mododeenvio").val("enviarfax");
+
+
+		$(".cargafichero").removeClass("oculto");
+		$(".carganotas").addClass("oculto");
+
+
+		$(".bloquedatocorreo").removeClass("oculto");
+
+		$(".focuseame2").delay(1).focus();
+
+		return false;
+	}
+
+	//CajaLlamar
+
+
+</script>
+
+
+<!--[if ie]>
+<style type="text/css">
+
+body  {
+	text-align: center;
+}
+
+</style>
+<![endif]-->
+
+</head>
+<body>
+
+<div id="root">
+
+<patTemplate:tmpl name="cabeza" src="cabeza.txt" autoload="on" parse="on"/>
+<patTemplate:tmpl name="menu" src="menu.txt" autoload="on" parse="on"/>
+
+
+
+<div id="contenedor">
+
+<div style="text-align: left"> 
+
+
+
+<ul id="menux" class="compactomenus">
+<li ><a title="" class="{CURRENT00}" href="modcentral.php?modo=cambio_filtrotask&id_task=-1"><patTemplate:Translate>Visor global</patTemplate:Translate></a></a></li>
+<li ><a title="{MENU_FULL_0}" class="{CURRENT0}" href="{MENU_0_URL}">{MENU_0_TXT}</a></a></li>
+<li ><a title="{MENU_FULL_1}" class="{CURRENT1}" href="{MENU_1_URL}">{MENU_1_TXT}</a></li>
+<li ><a title="{MENU_FULL_2}"  class="{CURRENT2}" href="{MENU_2_URL}">{MENU_2_TXT}</a></li>
+<li ><a title="{MENU_FULL_3}"  class="{CURRENT3}" href="{MENU_3_URL}">{MENU_3_TXT}</a></li>
+<li ><a title="{MENU_FULL_4}"  class="{CURRENT4}" href="{MENU_4_URL}">{MENU_4_TXT}</a></li>
+</ul>
+
+
+<div style="zborder: 1px solid orange;border-left:146px solid white;border-right: 1px solid white">
+
+<table style="background-color: #fbefea;background-color: #eee;" id="cajafiltros">
+<tr class="fixforms">
+<td>
+<form action="modcentral.php" method="post" style="display:inline">
+<input style="margin-left:4px" type='image' value="Recargar" src="icons/reload3.gif" title="<patTemplate:Translate>Recargar</patTemplate:Translate>" />
+</form>
+</div>
+
+</td>
+<td><label><patTemplate:T>Filtrar:</patTemplate:T></label></td>
+<td colspan="2" align="left">
+<form method='post' action='modcentral.php' name='cambio_grupo' style="display:inline">
+<input type="hidden" name="modo" value="cambio_grupo" />
+<select class="zui-state-default" id="" name="tipo_id_grupo" onchange="cambio_grupo.submit()">
+<option >Grupo..</option>
+<option value="-1">Todos</option>
+<patTemplate:var name="combosgrupos" />
+</option>
+</select>
+</form>
+
+<!-- </td><td> -->
+
+<form method='post' action='modcentral.php' name='cambio_status' style="display:inline;margin-left:16px">
+<input type="hidden" name="modo" value="cambio_status" />
+<select class="zui-state-default" id="" name="tipo_status" onchange="cambio_status.submit()">
+<option>Estado..</option>
+<option value="-1">Todos</option>
+<patTemplate:var name="combosstatus" />
+</option>
+</select>
+</form>
+
+
+<!-- </td><td> -->
+
+<form method='post' action='modcentral.php' name='cambio_buzon' style="display:inline">
+<input type="hidden" name="modo" value="cambio_buzon" />
+<select class="zui-state-default" id="" name="tipo_buzon" onchange="cambio_buzon.submit()">
+<option value="in">Buzón..</option>
+<option value="">Buzón de entrada y salida</option>
+<option value="in">Buzón de entrada</option>
+<option value="out">Buzón de salida</option>
+</select>
+</form>
+</td>
+<td colspan="1" valign="center" align="left">
+<form method="post" action="modcentral.php" style="display:inline">
+<input type="hidden" name="modo" value="buscar_concreto" />
+<label for="buscaidcomm" class="principiofiltro">IDCOMM</label>
+<input class="idcomm zui-state-default" type="text" name="buscaidcomm">
+<input type="image" src="icons/busca1.gif" name="busca_idcomm" value="<patTemplate:T>Buscar</patTemplate:T>" class="uzi-state-default">
+</form>
+</td><td>
+
+<nobr>
+<form method="post" action="modcentral.php" style="display:inline">
+<input type="hidden" name="modo" value="buscar_contacto" />
+<label for="buscaidcomm" class="principiofiltro">Cod.Cont</label>
+<input class="idcomm zui-state-default" type="text" id="buscaid_contacto_txt">
+<input class="oculto" type="hidden" name="buscacod_contacto" id="buscaid_contacto">
+<input type="image" src="icons/busca1.gif" name="busca_idcomm" value="<patTemplate:T>Buscar</patTemplate:T>" class="uzi-state-default">
+</form>
+</nobr>
+
+</td><td align="right">
+
+<form method='post' action='modcentral.php' name='resultados_pagina' style="display:inline">
+<!-- <patTranslate:Translate>Filas:</patTranslate:Translate> -->
+<input type="hidden" name="modo" value="resultados_pagina" />
+<select class="zui-state-default" name="tipo_resultadospagina" onchange="resultados_pagina.submit()">
+<option></option>
+<option>5</option>
+<option>10</option>
+<option>15</option>
+<option>20</option>
+<option>30</option>
+<option>50</option>
+<option>75</option>
+<option>100</option>
+</select>
+</form>
+</td>
+
+</tr>
+
+<tr>
+<td>&nbsp;</td>
+<td><label><patTemplate:T>Ocultar:</patTemplate:T></label></td>
+<td colspan="4">
+
+<form method="post" action="modcentral.php" id="filtros_estados" style="display:inline">
+
+<input type="hidden" name="modo" value="filtro_estados" />
+
+<div style="border: 0px solid red;width:100%">
+<span class="filtrostatus"><input id="tramitados_chk" type='checkbox' name='tramitados'
+	 <patTemplate:var name="tramitados" modifier="Checkbox" /> /> Tramitados</span>
+<span class="filtrostatus"><input id="traspasados_chk" type='checkbox' name='traspasados'
+	<patTemplate:var name="traspasados" modifier="Checkbox" />  /> Traspasados</span>
+<span class="filtrostatus"><input id="eliminados_chk" type='checkbox' name='eliminados'
+	<patTemplate:var name="eliminados" modifier="Checkbox" /> /> Eliminados</span>
+</div>
+</form>
+
+
+</td>
+
+</tr>
+
+<tr  id="cajaaplicadores">
+<td>&nbsp;</td>
+<td><label><patTemplate:T>Cambiar:</patTemplate:T></label></td>
+<td colspan="4">
+
+<patTemplate:Auth command="aplicar_etiquetas">
+<form action="modcentral.php" id="etiquetador" style="display:inline"  method="post">
+<input type="hidden" name="modo" value="apply_label" />
+<input type="hidden" name="list_id_comm" value="" id="list_id_comm"/>
+<select name="etiqueta" id="lista_etiquetas_status"  class="zui-state-default">
+<option value="">Etiqueta..</option>
+<patTemplate:var name="lista_etiquetas_status" />
+</select>
+<input type="submit" value="Aplicar"  class="zui-state-default oculto">
+</form>
+</patTemplate:Auth>
+
+<patTemplate:Auth command="aplicar_etiquetas">
+<form action="modcentral.php" id="etiquetador2"  style="display:inline;margin-left:16px" class="oculto" method="post">
+<input type="hidden" name="modo" value="apply_label" />
+<input type="hidden" name="list_id_comm" value="" id="list_id_comm2"/>
+<select name="etiqueta" id="lista_etiquetas_basicas"  class="zui-state-default">
+<option value="">Etiqueta..</option>
+<patTemplate:var name="lista_etiquetas_basicas" />
+</select>
+<input type="submit" value="Aplicar"  class="zui-state-default oculto">
+</form>
+</patTemplate:Auth>
+
+
+<patTemplate:Auth command="cambiar_estado">
+<form method='post' id="etiquetador3" action='modcentral.php' style="display:inline;margin-left:16px"  method="post">
+<input type="hidden" name="modo" value="apply_status" />
+<input type="hidden" name="list_id_comm" value="" id="list_id_comm3"/>
+
+<select name="status" id="lista_status"  class="zui-state-default">
+<option>Estado..</option>
+<patTemplate:var name="combosstatus2" />
+</select>
+<input type="submit" value="Aplicar"  class="zui-state-default oculto">
+</form>
+</patTemplate:Auth>
+
+<patTemplate:Auth command="cambiar_canal">
+<form action="modcentral.php" id="etiquetador_canal"  style="display:inline;margin-left:16px"  method="post">
+<input type="hidden" name="modo" value="apply_task" />
+<input type="hidden" name="list_id_task" value="" id="list_id_task"/>
+<select name="task" id="lista_canales"  class="zui-state-default">
+<option value="">Canal..</option>
+<patTemplate:var name="combostask" />
+</select>
+<input type="submit" value="Aplicar"  class="zui-state-default oculto">
+</form>
+</patTemplate:Auth>
+
+<patTemplate:Auth command="cambiar_etiqueta_lugar">
+<form action="modcentral.php" id="etiquetador4"  style="display:inline;margin-left:16px" method="post">
+<input type="hidden" name="modo" value="apply_label" />
+<input type="hidden" name="list_id_comm" value="" id="list_id_comm4"/>
+<select name="etiqueta" id="lista_etiquetas_locations"  class="zui-state-default">
+<option value="">Lugar..</option>
+<patTemplate:var name="combolocations" />
+</select>
+<input type="submit" value="Aplicar"  class="zui-state-default oculto">
+</form>
+</patTemplate:Auth>
+
+</td>
+</tr>
+<tr>
+<td></td><td></td>
+<td>
+
+<input title="<patTemplate:T>Llamada entrante</patTemplate:T>" type="image" value="Llamada entrante" onclick="return CajaOpinar()" src="img/llamadaentrante.gif" zstyle="width: 24px;height:24px"/>
+
+
+<input title="<patTemplate:T>Llamada realizada</patTemplate:T>"  type="image" value="Llamada realizada" onclick="return CajaLlamar()"  src="img/llamadasaliente.gif" >
+
+
+<input title="<patTemplate:T>Enviar correo</patTemplate:T>"  type="image" value="Enviar correo" onclick="return EscribirEmails()"  src="img/email1.gif" >
+
+<input title="<patTemplate:T>Enviar fax</patTemplate:T>"  type="image" value="Enviar fax" onclick="return EscribirFax()"  src="img/faxsaliente1.gif" >
+
+
+</td>
+
+</tr>
+</table>
+
+<!--
+
+<xmp>
+<patTemplate:var name="consulta" />
+</xmp>
+
+-->
+
+
+
+<table  class="enbanner" border="0" cellpadding="0" cellspacing="0" id="lineas_de_comm" width="100%">
+<thead class="headListado">
+<th class="cabecera">
+
+	<form class="iconoboton" method="post">
+		<input type="image" name='modo' src="icons/updown2.gif" class="updown" value="updown_change" />
+		<input type="hidden" name='updown' value='inbox' />
+	</form> 
+	<patTemplate:Translate>Buzón</patTemplate:Translate>	
+	
+</th>	
+<th class="cabecera"><form class="iconoboton" method="post">
+	<input type="image" name='modo' src="icons/updown2.gif" class="updown" value="updown_change" />
+	<input type="hidden" name='updown' value='address' />
+</form>  <patTemplate:Translate>Dirección</patTemplate:Translate></th>
+<th class="cabecera"><form class="iconoboton" method="post">
+	<input type="image" name='modo' src="icons/updown2.gif" class="updown" value="updown_change" />
+	<input type="hidden" name='updown' value='date' />
+</form>  <patTemplate:Translate>Fecha</patTemplate:Translate></th>
+<th class="cabecera"><form class="iconoboton" method="post">
+	<input type="image" name='modo' src="icons/updown2.gif" class="updown" value="updown_change" />
+	<input type="hidden" name='updown' value='priority' />
+</form>  <patTemplate:Translate>Prioridad</patTemplate:Translate></th>
+<th class="cabecera"><form class="iconoboton" method="post">
+	<input type="image" name='modo' src="icons/updown2.gif" class="updown" value="updown_change" />
+	<input type="hidden" name='updown' value='status' />
+</form>  <patTemplate:Translate>Estado</patTemplate:Translate></th>
+<th class="cabecera"><form class="iconoboton" method="post">
+	<input type="image" name='modo' src="icons/updown2.gif" class="updown" value="updown_change" />
+	<input type="hidden" name='updown' value='contact' />
+</form>  <patTemplate:Translate>Contacto</patTemplate:Translate></th>
+<th class="cabecera"><form class="iconoboton" method="post">
+	<input type="image" name='modo' src="icons/updown2.gif" class="updown" value="updown_change" />
+	<input type="hidden" name='updown' value='group' />
+</form>  <patTemplate:Translate>Grupo</patTemplate:Translate></th>
+<!--<th class="cabecera">&nbsp;</td>-->
+</thead>
+
+	<patTemplate:tmpl name="list_entry">
+	<tr class="filaTitulo {FILACSS} {OCULTARLINEAVACIA} {PI}" id="titulo_<patTemplate:var name="id_comm" />">
+
+	<td colspan='8' class="contooltip cajatitulo" alt="{ID_COMM}" >
+	<input id="checkbox_{ID_COMM}" class='selcomm' id_comm="{ID_COMM}" type="checkbox" />
+	<A  name="solapa_<patTemplate:var name="id_comm"/>"></A>
+	<a id="a_<patTemplate:var name="id_comm"/>" class="enlaceTituloCom {CLASELEIDO}" zhref="#solapa_<patTemplate:var name="id_comm"/>" onclick="ConmutarSolapa('<patTemplate:var name="id_comm"/>')" >
+<!--		<span class='idcom'>ECOM/{ID_COMM}</span>  -->
+
+<span class="idcom tagit">
+<b class="tagit-choice">ECOM/{ID_COMM}</b>
+</span>
+
+<b> {ICONS}<patTemplate:var name="title" modifier="html8"/></b>
+	</a>
+	</td></tr>
+	
+	<tr class="filaListado filaDatos {FILACSS2} {OCULTARLINEAVACIA} {PI}" id="datos_<patTemplate:var name="id_comm" />">
+
+	<td><div><patTemplate:var name="channel" modifier="html8"/> </div></td>
+	<td><div><patTemplate:var name="from_to" modifier="html8"/></div></td>
+	<td><div><patTemplate:var name="date_cap" modifier="Fechahora"/></div></nobr></td>
+	<td><div>&nbsp;<patTemplate:var name="priority" modifier="html8"/></div></td>
+	<td><center>
+<span class="tagit tagit_{STATUSCSS}">
+<b class="tagit-choice"><patTemplate:var name="status" modifier="html8"/></b>
+</span>
+</center></td>
+	<td><center><patTemplate:var name="contact_name" modifier="html8"/></center></td>
+	<td><center><patTemplate:var name="group" /> <patTemplate:var name="date_read" /></center></td>
+	</tr>
+	<tr class="filaAmpliadoDatos" id="precont_<patTemplate:var name="id_comm" />">
+		<td id="contenedor_<patTemplate:var name="id_comm" />" colspan='8'>
+		</td></tr>
+
+	</patTemplate:tmpl>
+
+	<tr  class="filaListado filaDatos {OCULTARMENSAJELINEAVACIA}">
+	<td colspan="8">
+	<p class='mensajeListaVacia'><patTemplate:T>No hay comunicaciones</patTemplate:T></p>
+	</td>
+	</tr>
+
+</table>
+
+<table style="background-color: #eee" id="cajafiltros2">
+<tr class="fixforms">
+<td>
+<div id="inforesultadoslistado"></div>
+</td><td>
+<div>
+<center>
+<a
+	class="enlacegenerico"
+
+	name="maslineas"
+	href="#maslineas"
+	onclick="return MasLineas()"
+	>M&aacute;s l&iacute;neas</a>
+</center>
+</div>
+
+</td><td align="right"> 
+
+<form method='post' action='modcentral.php' name='resultados_pagina2'>
+<patTranslate:Translate>Filas:</patTranslate:Translate>
+<input type="hidden" name="modo" value="resultados_pagina" />
+<select class="zui-state-default" id="" name="tipo_resultadospagina" onchange="resultados_pagina2.submit()">
+<option></option>
+<option>5</option>
+<option>10</option>
+<option>15</option>
+<option>20</option>
+<option>30</option>
+<option>50</option>
+<option>75</option>
+<option>100</option>
+</select>
+</form>
+</td>
+</table>
+
+
+<patTemplate:tmpl name="navegador" src="vacio.txt" autoload="off" parse="on"/>
+
+</div ><!--  caja filtro y listado  -->
+
+<br style="clear:both">
+
+</div>
+
+</div>
+
+<div class="oculto removeme">
+<patTemplate:Translate>Ver comunicaciones</patTemplate:Translate>
+</div>
+
+
+
+
+
+<script>
+
+
+
+</script>
+
+
+<div class="oculto">
+<div id="altaComentario">
+<patTemplate:tmpl name="altacomentario" src="altacomentario.txt" autoload="on" parse="on"/>
+</div>
+</div>
+
+
+</body>
+
+
+</html>
+</patTemplate:tmpl>

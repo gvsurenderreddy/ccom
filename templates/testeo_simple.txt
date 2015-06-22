@@ -1,0 +1,45 @@
+
+<patTemplate:tmpl name="list">
+<table  class="enbanner cajalistado"   cellspacing='0' cellpadding='0'   >
+
+<tr class="headListado">
+<th>
+&nbsp;
+</th>
+<th>
+
+<patTemplate:Translate>Test</patTemplate:Translate>
+
+</th><th><patTemplate:Translate>Resultado</patTemplate:Translate></th>
+
+</tr>
+
+
+	<patTemplate:tmpl name="list_entry" type="oddeven">
+	<patTemplate:sub condition="__even">
+
+	<tr class="filaListado {ESTILOCSS} odd">
+	<td width="80"  class="colbtn"> &nbsp;
+	</td>
+	<td>{NAME} &nbsp;</td>
+	<td><patTemplate:var name="resultado" /> &nbsp;</td>
+	</tr>
+	</patTemplate:sub>
+	<patTemplate:sub condition="__odd">
+	<tr class="filaListado {ESTILOCSS} even">
+	<td width="80"  class="colbtn"> &nbsp;
+	</td>
+	<td>{NAME} &nbsp;</td>
+	<td ><patTemplate:var name="resultado" /> &nbsp;</td>
+	</tr>
+
+	</patTemplate:sub>
+	</patTemplate:tmpl>
+
+<tr class="rematetabla"><td colspan="4" valign="center">
+&nbsp;
+</td></tr>
+
+
+</table>
+</patTemplate:tmpl>

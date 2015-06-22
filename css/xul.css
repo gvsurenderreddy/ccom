@@ -1,0 +1,60 @@
+
+* {
+	font-size: 12px;	
+}
+
+
+.labelCliente {	
+	width: 12em;	
+}
+
+
+.labelGeneral {	
+	width: 12em;	
+	text-align: right;
+}
+
+.datoNombre {
+	width: 20em;	
+}
+
+.datoTelefono {
+	width: 11em;	
+}
+
+.datoCP{
+	width: 8em;	
+}
+
+.datoLocalidad{
+	width: 20em;
+	
+}
+
+.datoGrande {
+	width: 100%;
+}
+
+.datoComentarios {
+	width: 20em;	
+}
+
+.datoDireccion {
+	width: 20em;
+}
+
+.datoFecha {
+	width: 12em;
+}
+
+
+
+hr {
+	
+}
+
+.simpleButton {
+	min-width: 11em;	
+}
+
+

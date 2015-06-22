@@ -1,0 +1,33 @@
+
+
+Instalacion hardware.
+
+Instalacion software:
+$ apt-get install capy4hylafax
+
+
+esto configura la tarjeta:
+$ capi4hylafaxconfig 
+
+mas info:
+ /usr/share/doc/capi4hylafax/README.Debian
+
+en este fichero
+/etc/default/capi4hylafax
+descomentar run_capi4hylafax, para que valga 1
+
+starting it:
+/etc/init.d/capi4hylafax start
+
+
+chaning 
+#USE_FAXGETTY=yes
+to
+USE_FAXGETTY=no 
+in
+/etc/default/hylafax 
+
+
+
+
+

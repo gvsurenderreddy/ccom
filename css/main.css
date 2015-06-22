@@ -1,0 +1,585 @@
+
+/* Ecomm - Normal */
+
+
+* {		
+	font-family: Helvetica,Arial,"Arial","Trebuchet MS",Verdana,"Verdana", "sans-serif";	
+	color: #444;
+}
+
+
+/*body*/
+
+body {
+	zbackground-image: url(../img/fakegray.gif);
+	zbackground-image: url(../img/grid2.jpg);
+	font-size: 12px;
+	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	padding-top: 32px;
+        margin-left:0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+        padding-bottom: 0px;
+}
+
+#root{
+	
+	border: 0px solid red;
+	margin: 0px;
+	padding: 0px;
+	zbackground-image: url(../img/grid2.jpg);
+        min-height: 400px;
+}
+
+
+
+/* --------------------------------- */
+
+
+table {
+	font-size: 12px;
+}
+
+/* --------------------------------- */
+
+
+.banner {
+	background-color: #ececec;
+}
+
+.aislado {
+	margin-bottom:4px;
+	margin-top:4px;
+	padding:2px;
+}
+
+
+/* --------------------- */
+
+
+.headListado th,.headListado td ,.zheadListado {
+   background-color: #ededed;
+   background-color: #70b6d8;
+   zbackground-color: black;
+   background-color: orange;
+/*
+   border-bottom: 1px solid gray;
+   border-right: 1px solid gray;
+   border-left: 1px solid #eee;
+   border-top: 1px solid #eee;*/
+   font-size: 14px;
+   padding-left: 16px;
+   padding-right: 16px;
+   color: white;
+   font-weight: bold; 
+   font-size: 12px;
+
+   border:1px solid #e19200;
+
+   text-align: center;
+   padding-top: 4px;
+   padding-bottom: 4px;
+}
+
+
+.filaListado td {
+	
+  border: 1px solid #ede2dd;
+  border-bottom: 1px solid #f59e00;
+  border-bottom: 1px solid #e4d9d4;
+
+  font-size: 12px;
+  padding-left: 8px;
+
+  margin-top: 6px;
+  margin-bottom:64px;
+  
+}
+
+
+.filalistado form {
+	padding-top:2px;
+	padding-bottom: 2px;
+	margin-bottom: -1px;
+}
+
+
+
+input, select  {
+   zborder: 1px solid gray;
+   zfont-size: 11px;
+   zmargin: 1px;
+   zpadding:2px;
+}
+
+
+
+
+input.btn {
+	font-family: arial;
+	font-size: 12px;
+	border: 1px solid #ccc;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+
+	zmargin: 0 0 2px 20px;
+	zbackground-color: #cc;
+}
+
+input.btn:hover {
+	zborder: 1px solid #ccc;
+	zborder:  1px solid black;
+	zborder-right: 1px solid black;
+	zborder-bottom: 1px solid black;
+	color: black;
+}
+
+
+
+textarea {
+	border:1px solid gray;
+}
+
+table {
+	width: 100%;
+}
+
+.col1 {
+	text-align: right;
+	margin-right: 8px;
+	padding-right: 8px;
+	min-width:64px;
+	width: 128px;
+	white-space:nowrap;
+	text-align:right;
+
+  	color: #d05627;
+}
+
+.colbtn {
+	
+	margin-right: 8px;	
+	min-width:64px;
+
+	text-align:center;
+	vertical-align: center;
+
+}
+
+.cajaedicion td {
+  border-left: none;
+  border-right: none;
+}
+
+
+.cajaedicion {
+ 
+ width: 50%;
+ margin-right: auto;
+ margin-left: auto;
+ background-color: white;
+ border:1px solid #eee;
+
+ margin: 0 auto;
+ margin-right: auto;
+ margin-left: auto;
+ background-color: white;
+ zborder:1px solid #eee;
+ zborder:1px solid #f59e00;
+ border:1px solid #ede2dd;
+
+ text-align: left;
+ zwidth: 600px;
+ zmargin-left: 220px;
+ zfloat:right;
+ width: 600px;
+ border: none;
+}
+
+.cajalistado {
+ zwidth: 50%;
+ margin: 0 auto;
+ margin-right: auto;
+ margin-left: auto;
+ background-color: white;
+ zborder:1px solid #eee;
+ zborder:1px solid #f59e00;
+ border:1px solid #ede2dd;
+
+ text-align: left;
+ zwidth: 600px;
+ zmargin-left: 220px;
+ zfloat:right;
+ width: 800px;
+ zmax-width: 85%;
+
+}
+
+
+
+/* Para el menu  ---> */
+
+ul#menux { 
+	zwidth: 100%; 
+	height: 27px; 
+	background:  url(../img/menu-bg.gif) top left repeat-x; 
+	font-size: 12px; 
+	font-family: Verdana, sans-serif; 
+	font-weight: bold; 
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0;
+	margin-top:20px;
+	overflow: hidden;
+	width: auto;
+}
+
+ul#menux li { display: block; float: left; margin: 0 0 0 5px; }
+
+ul#menux li a { 
+	height: 27px; 
+	color: #777; 
+	text-decoration: none; 
+	display: block; 
+	float: left; 
+	line-height: 200%; 
+	padding: 4px 15px 0; 
+	color: #d05627;
+}
+
+ul#menux li a:hover { 
+	color: #333; 
+
+	}
+
+ul#menux li a.current{ 
+	background-image: none;
+	background-color: black;
+	color: white;
+	padding: 4px 15px 0; 
+}
+
+ul#menux a.oculta {
+	display: none;
+	visibility:hidden;	
+	width:0px;
+	border: none;
+}
+
+
+.enlacegenerico {
+	text-decoration: none; 
+	color: #d05627;
+	font-weight: bold;
+}
+
+.enlacegenerico:hover{
+	text-decoration:underline;
+	color:black;
+}
+
+/*  <--- */
+
+#contenedor {
+ zbackground-color: white;
+ zborder: 1px solid blue;
+}
+
+#cajasolapa {
+ background-color: white;
+ padding-bottom: 8px;
+ padding-top: 8px;
+ zborder: 1px solid #5aabd2;
+ zborder-left: 145px solid transparent;
+ zborder-bottom: 32px solid red;
+ background-image: url(../img/grid-h1.jpg);
+ background-repeat: repeat-y;
+ margin-right: 8px;
+ min-height: 300px;
+}
+
+
+#cabeza  {
+  position: absolute;
+  top:0px;
+  left:0px;
+  width: 100%;
+  height: 24px;
+  height: 32px;
+  height: 44px;
+
+  zbackground-color: gray;
+  zbackground-color: #62afd4;
+	background-color:black;
+
+  font-size: 16px;
+  color: white;
+  text-align: left;
+
+  background-image: url(../img/bgdegradado1.gif);
+ 
+}
+
+
+#cadenaLogueado { 
+  position:absolute;
+  right: 8px;
+  top: 4px;
+  font-size: 12px;  
+  color: #666;
+  color: white;
+  font-weight: bold;
+}
+
+#cadenaLogueado a {
+  color: black;
+  color: green;
+  color: white;
+  
+  font-weight: normal;
+  text-decoration:none;
+}
+
+
+#cadenaLogueado a:hover {
+  text-decoration:underline;
+}
+
+#cadenaAnagrama {
+  zfont-weight: bold;
+  zmargin-left: 0px;
+  zfont-size: 23px;
+  zmargin-top: 32px;
+  zpadding-top: 2px;
+
+  position: absolute;
+  top: 1px;
+  left: 0px;
+  
+}
+
+/* ---------------------------- */
+
+
+.btncell {
+
+  margin:0px;
+  padding: 0px;
+  padding-top: 6px;
+  padding-bottom:4px;
+  background-color: #efefef; 
+}
+
+
+/*
+* html #root {
+	height: 1%;
+}*/
+
+
+html {
+  background-color: white;
+}
+
+
+#legalline {
+ clear:both; 
+  background-color: #f4f4f4;
+  zborder-left:200px solid #ccc;
+  margin-left:0px;
+  margin-right: 0px;
+
+  min-height: 80px;
+  height: 80px;
+
+  padding-left: 0px;
+  padding-right: 0px;
+
+  padding-left:  140px ;
+  padding-left:  40px ;
+  padding-top: 16px;
+
+
+  border-top: 1px solid #b2b2b2;
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      min-width: 1024px;
+
+}
+
+#legalline p , #legalline b  {
+  color: #bdbdbd;
+  text-align: left;  
+  font-size: 11px;
+}
+
+
+#legalline a {
+ color: #76c601;
+ text-decoration:none;
+}
+
+
+
+
+.navegador {
+	margin-left: 145px;
+	background-color: #eee;
+}
+
+/* Zebra */
+
+tr.alt td , tr.even td {
+	background: #ecf6fc;
+	background: #fbefea;
+}
+
+tr.over td, tr.odd td {
+	background: #bcd4ec;
+	background-color: white;
+}
+
+
+.filaTitulo td {
+   zbackground-image: url(../img/bgblue2.gif);
+}
+
+.filaDatos td {
+	background-color: #c0d5e5;
+	background-color: #c7dced;
+	background-color:  #fbefea;
+}
+
+.filaDatos td {
+  padding-left: 4px;
+  font-size: 11px;
+}
+
+
+.filaTitulo td a {
+    text-decoration: none;
+}
+
+
+.filaAmpliadoDatos {
+	zbackground-color: #eee;
+}
+
+
+
+.headerSeccion {
+	font-size: 16px;
+	color: #d05627;
+	zbackground-color: gray;
+	margin-left: 160px;
+	text-align: left;
+}
+
+.preheader {
+	background: #fbefea;
+}
+
+.buscarElementoListado , .buscarElementoListadoBoton  {
+	zheight: 16px;		
+	zvertical-align: center;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	margin-left: 4px;
+}
+
+.buscarElementoListadoBoton {
+
+}
+
+tr.rematetabla {
+
+}
+
+
+tr.rematetabla td {
+  text-align: right;
+  background: #fbefea;
+  padding-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.numeroPagina {
+  margin-right: 4px;
+}
+
+.cabeceraSeccionMenu {
+  background-color: orange;
+  color: white;
+  text-align: center;
+  border: 1px solid orange;
+  padding-left: 4px;
+}
+
+.noborders td{
+ border: 0px;
+}
+
+.oculto {
+  display:none;
+  position: absolute;
+  top: -9000px;
+
+}
+
+
+.fixforms form {
+	padding-top:2px;
+	padding-bottom: 2px;
+	margin-bottom: -1px;
+}
+
+a.pageSelected:hover  {
+	color: gray!important;
+}
+
+
+.pageSelected {
+	background-color: #ffe7ba!important;
+}
+
+
+form.iconoboton {
+  magin-bottom: -1px;
+  display:	inline;
+}
+
+
+#cajalinkslabels {
+ display: none;
+}
+
+
+.imagebotondesactivado {
+  opacity: 0.3;
+  -moz-opacity:0.3;
+}
+
+
+.textlink {
+	color: #d05627;
+}
+
+.iconmenu {
+	border: 0px!important;
+	margin: 0px;
+	padding: 0px;
+	margin-right: 3px;
+}
+
+.iconoboton {
+ margin-left: 3px;
+ margin-right: 3px;
+}
+
+.ikmenu {
+ margin-right: 2px;
+}
+
+

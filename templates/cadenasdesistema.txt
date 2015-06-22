@@ -1,0 +1,15 @@
+<patTemplate:tmpl name="page">
+
+
+
+
+//Etiquetas de estado:
+<patTemplate:Translate>Recibida</patTemplate:Translate>
+<patTemplate:Translate>Enviada</patTemplate:Translate>
+
+
+Auto: <patTemplate:Translate>Estado</patTemplate:Translate>
+Auto: <patTemplate:Translate>Listados</patTemplate:Translate>
+Auto: <patTemplate:Translate>Ver comunicaciones</patTemplate:Translate>
+
+</patTemplate:tmpl>

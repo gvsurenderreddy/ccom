@@ -1,0 +1,202 @@
+<patTemplate:tmpl name="page">
+<html>
+<head>
+	<patTemplate:tmpl name="headers" src="headers.txt" autoload="on" parse="on"/>
+	<link href="css/menu.css" rel="stylesheet" type="text/css" />	
+
+	<script type="text/javascript">
+	$(function() {
+
+		
+
+		var w= $(window).width();
+		w = w - 175;
+		w2 = w;
+
+		$(".cajalistado").css("width",w + "px");
+		$(".cajaedicion").css("width",w + "px");
+
+		$(".maximoRazonable").css("width",w2+"px");
+
+
+		$(".imagebotonborrar").click( function(i){			
+			if ( confirm("¿Esta seguro de que quiere borrar este elemento?")){
+				return true;
+			}
+			return false;
+		});
+
+
+		$(".imagebotonborrar").attr("title","<patTemplate:T>Borrar</patTemplate:T>");
+		$(".imagebotoneditar").attr("title","<patTemplate:T>Editar</patTemplate:T>");
+
+		$(".colbtn").attr("valign","center");
+
+		 // Match all link elements with href attributes within the content div
+		if(0)
+		$('.contooltip_nw').each( function() {
+
+			$(this).qtip( {
+				position: { corner:{ tooltip:'bottomLeft',target: 'topRight'} },
+				content: '<div> '+ $(this).attr("tooltip")+'</div>', // Give it some content, in this case a simple string
+					style: {
+						border: { width: 1, radius: 3 },
+						tip: true, // Give it a speech bubble tip with automatic corner detection
+						name: 'cream' // Style it according to the preset 'cream' style
+					}
+		       });
+		});
+
+		
+		var href = document.location.href + " ";
+		
+		$("#navcontainer li a").each(function(){		
+		
+			var myhref = $(this).attr("href") + "";
+			if ( href.match( myhref ) ){				
+				$(this).addClass("pageSelected");				
+			}						
+		});
+				
+		
+		$("#change-list-size").each( function(){
+			$(this).html("<option></option><option>5</option>"+
+					"<option>10</option><option>15</option><option>20</option>"+
+					"<option>30</option><option>50</option><option>75</option><option>100</option>");
+
+			$(this).click( function(){
+
+				var listsize = $(this).val();
+
+				if (!listsize) return;
+
+				$("#extracontainer").html("<form id='sendme' style='visibility:hidden' method='post'>"+
+					"<input type='hidden' name='modo' value='change-list-size'>"+
+					"<input type='hidden' name='list-size' value='"+listsize+"'></form>");
+
+				$("#sendme").submit();
+			});
+		});
+		
+		function buscar(){
+			var estaBuscando = $(".buscarElementoListado").val();		
+
+			$("#filtra-list-value").val(estaBuscando);			
+			$("#filtra-list").submit();
+		
+		};
+
+		
+		$(".buscarElementoListado").keypress(function(event) {		
+				if (event.keyCode != '13') {
+     				//event.preventDefault();
+     				return;
+   				}
+   				buscar();
+		});
+
+		
+		$(".buscarElementoListadoBoton").click( buscar );
+		
+
+		$("#validateMe").each(function(){		
+			jQuery.validator.messages.required = " <patTemplate:T>Este campo es obligatorio.</patTemplate:T> ";
+					
+			$(this).validate();		
+		});
+
+		if(typeof window.postCarga == 'function') {
+			postCarga();
+		}
+        
+	});
+
+
+	</script>
+
+
+<!--[if ie]>
+<style type="text/css">
+
+#root {display:table;height:100%}
+
+body  {
+	text-align: center;
+}
+
+.navegador {
+	width: 100%;
+}
+
+
+</style>
+<![endif]-->
+
+
+
+</head>
+<body>
+
+<div id="root">
+
+<patTemplate:tmpl name="cabeza" src="cabeza.txt" autoload="on" parse="on"/>
+
+<patTemplate:tmpl name="menu" src="menu.txt" autoload="on" parse="on"/>
+
+
+
+<div id="contenedor">
+
+{NOLOGIN}
+
+<ul id="menux" >
+<li ><a class="{CURRENT0}" href="{MENU_0_URL}">{MENU_0_NAME}</a></a></li>
+<li ><a class="{CURRENT1} {MENU_1_CSS}" href="{MENU_1_URL}">{MENU_1_NAME}</a></li>
+<li ><a class="{CURRENT2} {MENU_2_CSS}" href="{MENU_2_URL}">Modificar</a></a></li>
+</ul>
+
+{NOLOGIN2}
+
+<div id="cajasolapa"><!-- caja solapa -->
+
+<patTemplate:tmpl name="informacion" src="vacio.txt" autoload="off" parse="on"/>
+<patTemplate:tmpl name="edicion" src="vacio.txt" autoload="off" parse="on"/>
+<patTemplate:tmpl name="listado" src="vacio.txt" autoload="off" parse="on"/>
+<patTemplate:tmpl name="navegador" src="vacio.txt" autoload="off" parse="on"/>
+
+
+ <div  style="height:10px">&nbsp;</div> 
+
+</div><!-- caja solapa -->
+
+
+</div>
+
+
+<div class="oculto">
+
+<form method="post" id="filtra-list">
+<input type="hidden" name="modo" value="filtrar-elemento" />
+<input type="hidden" name="filtrar-elemento" value="" id="filtra-list-value" />
+</form>
+
+</div>
+
+<div id="extracontainer">
+</div>
+</div><!-- root -->
+
+
+
+
+
+<patTemplate:tmpl name="copyright" src="legal.txt" autoload="on" parse="off"/>
+
+
+
+
+</body>
+
+
+</html>
+</patTemplate:tmpl>

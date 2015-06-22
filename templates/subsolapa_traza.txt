@@ -1,0 +1,49 @@
+
+<patTemplate:tmpl name="page">
+
+<table width="100%"  class="desolapa">
+
+<tr><td class="colz1">Canal:</td><td><patTemplate:var name="channel" modifier="html8"/></td></tr></tr>
+	<tr><td class="colz1">Desde:</td><td class="dedato"><patTemplate:var name="from_to" modifier="html8"/></td></tr>
+	<tr><td class="colz1">Fecha cap.:</td><td class="dedato"><patTemplate:var name="date_cap" modifier="Fechahora"/></td></tr>
+
+
+
+	<tr>
+	<td colspan="2">
+
+
+	<table width="100%" style="border: 2px solid orange">
+	<thead class="headListado {ESTILOCSS}">
+	<th class="cabecera"><patTemplate:T>Usuario</patTemplate:T></td>
+	<th class="cabecera"><patTemplate:T>Grupo</patTemplate:T></td>
+	<th class="cabecera"><patTemplate:T>Estado</patTemplate:T></td>
+	<th class="cabecera"><patTemplate:T>Tiempo</patTemplate:T></td>
+	<th class="cabecera"><patTemplate:T>Acumulado</patTemplate:T></td>
+	</thead>
+
+
+	<patTemplate:tmpl name="list_entry">
+	<tr class="filaListado {ESTILOCSS}">
+	<td><patTemplate:var name="usuario" modifier="html8"/> &nbsp;</td>
+	<td><patTemplate:var name="grupo" modifier="html8"/> &nbsp;</td>
+	<td><patTemplate:var name="estado" modifier="html8"/> &nbsp;</td>
+	<td><patTemplate:var name="tiempo" modifier="html8"/> &nbsp;</td>
+	<td><patTemplate:var name="tiempoacumulado" modifier="html8"/> &nbsp;</td>
+	</tr>
+	</patTemplate:tmpl>
+	</table>
+
+
+
+	</td>
+	</tr>
+
+</td>
+
+</table>
+
+
+
+</patTemplate:tmpl>
+

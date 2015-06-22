@@ -1,0 +1,131 @@
+
+<patTemplate:tmpl name="page">
+
+<form action="ajax.php" method="post" id="reenviador">
+<input type="hidden" name="id_comm" value="{IDCOMM}"/>
+<table width="100%"  class="desolapa">
+
+<tr><td class="colz1" width="80"><patTemplate:T>Dirección original:</patTemplate:T></td>
+		<td><patTemplate:var name="from_to" modifier="html8"/></td></tr></tr>
+	<tr><td class="colz1"><patTemplate:T>Dirección de reenvio:</patTemplate:T></td>
+		<td class="dedato"><input
+			type="text"
+				style="width: 30em"
+			 name="newdireccion" value="<patTemplate:var name="newto" modifier="html8"/>" /></td></tr>
+	<tr><td class="colz1"><patTemplate:T>Nuevo asunto:</patTemplate:T></td>
+		<td class="dedato"><input
+			 type="text"
+			style="width: 50em"
+				 name="asunto" value="<patTemplate:var name="newasunto" modifier="html8"/>" /></td></tr>
+
+<tr>
+    <td colspan='2' style='background-color: white;zpadding:2px;border-top:1px solid #ccc' valign='top'>
+	<textarea style="width: 100%;height: 100%" class="anchoarea" id="mensaje" name="mensaje"></textarea>
+	</td>
+</tr>
+<tr>
+<td></td><td><input type="submit" value="Enviar" /> <input type="reset" value="Cancelar" /></td>
+</tr>
+</td>
+</table>
+</form>
+
+
+
+<script >
+
+	
+		
+
+
+		$("#reenviador").submit(function(){
+
+			var id_comm = $("input[name=id_comm]").val();
+			var newto = $("input[name=newto]").val();
+			var newasunto = $("input[name=newasunto]").val();
+			var mensaje = $("textarea[name=mensaje]").val();
+
+
+			$.ajax({
+					type: "POST",
+					url: "ajax.php",
+					data: "modo=reenviar&id_comm="+id_comm+
+							"&newto="+encodeURIComponent(newto)+
+							"&newasunto="+encodeURIComponent(newasunto)+
+							"&mensaje="+encodeURIComponent(mensaje),
+					success: function(datos){
+							try {
+								if(!datos) return;
+								var obj = eval("(" + datos + ")");
+								if(checkUnlogin(obj)) return;
+
+								if (obj.ok) {
+									alert(obj.msg);
+								}
+							}catch(e){
+								alert("ERROR: " + e+ ", code:"+datos);
+							}
+					  }
+			});
+
+			return false;
+		});
+		/*
+
+		$("#reenviador").submit(function(){
+			$.ajaxSetup({
+					scriptCharset: "utf-8" ,
+					contentType: "application/json; charset=utf-8"
+			});
+
+			
+
+			var id_comm = $("input[name=id_comm]").val();
+			var newto = $("input[name=newto]").val();
+			var newasunto = $("input[name=newasunto]").val();
+			var mensaje = $("textarea[name=mensaje]").val();
+
+			$.ajax({
+					type: "POST",
+					url: "ajax.php",
+					data: "modo=reenviar&id_comm="+id_comm+
+							"&newto="+encodeURIComponent(newto)+
+							"&newasunto="+encodeURIComponent(newasunto)+
+							"&mensaje="+encodeURIComponent(mensaje),
+					success: function(datos){
+							try {
+								alert(datos);
+
+								var obj = eval("(" + datos + ")");
+								if(checkUnlogin(obj)) return;
+
+								if (obj.ok) {
+
+								}
+							}catch(e){
+								alert("ERROR: " + e+ ", code:"+datos);
+							}
+					  }
+			});
+
+			return false;
+		});
+		*/
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</patTemplate:tmpl>
+

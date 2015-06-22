@@ -1,0 +1,23 @@
+
+
+	<div id="cabeza" style="display: inline-block">
+	<span id="cadenaAnagrama"><img src="img/logo1.gif"></span>
+
+
+{NOLOGIN}
+
+<span id="cadenaLogueado">
+Usuario: <a href="modpanel.php">
+<patTemplate:var name="nombreusuario" modifier="html8" /></a> |
+<a href="modmapa.php"><patTemplate:T>Volver al mapa</patTemplate:T></a> |
+<a href="logout.php"><patTemplate:T>Cerrar sesión</patTemplate:T></a>
+</span>
+
+{NOLOGIN2}
+
+
+
+</div>
+
+
+

@@ -1,0 +1,25 @@
+
+<patTemplate:tmpl name="page">
+
+<table width="100%" class="desolapa">
+	<tr><td class="colz1">ECOM-ID</td><td class="dedato"><patTemplate:var name="id_comm" modifier="html8"/></td></tr>
+	<tr><td class="colz1"><patTemplate:T>Buzón:</patTemplate:T></td><td class="dedato"><patTemplate:var name="channel" modifier="html8"/></td></tr></tr>
+	<tr><td class="colz1"><patTemplate:T>Desde:</patTemplate:T></td><td class="dedato"><patTemplate:var name="from_to" modifier="html8"/></td></tr>
+	<tr><td class="colz1"><patTemplate:T>Fecha cap.:</patTemplate:T></td><td class="dedato"><patTemplate:var name="date_cap" modifier="Fechahora"/></td></tr>
+	<tr><td class="colz1"><patTemplate:T>Prioridad:</patTemplate:T></td><td class="dedato"><patTemplate:var name="priority" modifier="html8"/></td></tr>
+	<tr><td class="colz1"><patTemplate:T>Status:</patTemplate:T></td><td class="dedato">
+
+<span class="tagit tagit_{STATUSCSS}">
+<b class="tagit-choice"><patTemplate:var name="status" modifier="html8"/></b>
+</span>
+
+</td></tr>
+	<tr><td class="colz1"><patTemplate:T>Contacto:</patTemplate:T></td><td><patTemplate:var name="contact_name" modifier="html8"/></td></tr>
+	<tr><td class="colz1"><patTemplate:T>Grupo:</patTemplate:T></td><td><patTemplate:var name="group" /></td></tr>
+</table>
+
+
+
+</patTemplate:tmpl>
+
+

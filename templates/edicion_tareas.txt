@@ -1,0 +1,40 @@
+
+
+<form action='{MODNAME}.php' method='post'  id="validateMe">
+
+<input type='hidden' name='modo' value='{MODOEDICION}' />
+<input type='hidden' name='id_task' value='{ID}' />
+
+<table class="cajaedicion"  cellspacing='0' cellpadding='0' >
+<tr>
+<td valign='top'>
+
+<table width='100%'>
+<tr class="headListado">
+<td colspan="3" ><patTemplate:var name="modoediciontxt" modifier="html8"/></td></tr>
+
+<tr class="filaListado filaImpar">
+	<td class="col1">Etiqueta *</td>
+	<td colspan="2"><input  class='flat required' id="task" style='width: 20em' type='text' name='task'
+	value='{TAREA}'/></td>
+</tr>
+
+<tr class="rematetabla">
+<td class="btncell"></td>
+<td colspan="3" class="btncell">
+ <input  class="btn ui-state-default ui-corner-all" value="Guardar cambios" type="submit" onclick="return ComprobarDatos()">
+ <input  class="btn ui-state-default ui-corner-all  {CSSBTNREMOVE}" value="Eliminar tarea" type="button" onclick="Eliminar()">
+ <input  class="btn ui-state-default ui-corner-all" value="Cancelar" type="button" onclick="location.href='{MODNAME}.php'">
+</td>
+</tr>
+
+</table>
+
+
+</td><td>
+
+
+</td></tr>
+</table>
+
+</form>

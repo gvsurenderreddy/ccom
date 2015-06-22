@@ -1,0 +1,101 @@
+
+
+
+<form action='{MODNAME}.php' method='post'  id="validateMe">
+
+<input type='hidden' name='modo' value='{MODOEDICION}' />
+<input type='hidden' name='id_channel' value='{ID_CHANNEL}' />
+
+<table class="cajaedicion"  cellspacing='0' cellpadding='0' >
+<tr>
+<td valign='top'>
+
+
+<table width='100%'>
+<tr  class="headListado">
+<th colspan="3"><patTemplate:var name="modoediciontxt" modifier="html8"/></th>
+</tr>
+
+<tr class="filaListado filaImpar">
+	<td class="col1"><patTemplate:T>Canal (nº fax,email, teléfono, nombre formulario,etc...)</patTemplate:T></td>
+	<td colspan="2"><input  class='flat required' id="channel" style='width: 20em' type='text' name='channel'
+	value='{CHANNEL}'/></td>
+</tr>
+
+<tr class="filaListado filaImpar">
+	<td class="col1"></td>
+	<td colspan="2" id='sugerencias'>
+	</td>
+</tr>
+
+<tr class="filaListado filaImpar">
+	<td class="col1"><patTemplate:T>Medio</patTemplate:T></td>
+	<td colspan="2">
+		<select name="id_media" onchange='ActualizaSugerencias(this.value)'>
+		<patTemplate:var name="combomedioshtml"/>
+		</select>
+	</td>
+</tr>
+
+<tr class="filaListado filaImpar">
+	<td class="col1"><patTemplate:T>Tarea</patTemplate:T></td>
+	<td colspan="2">
+		<select name="id_task" onchange=''>
+		<patTemplate:var name="combotareahtml"/>
+		</select>
+	</td>
+</tr>
+
+<script>
+
+
+function ActualizaSugerencias(new_id_media){
+
+	//alert($);
+	$("#sugerencias").html("");
+
+
+	$.ajax({
+			type: "POST",
+			url: "ajax.php",
+			data: "modo=cargaSugerenciasMedio&id_media="+new_id_media,
+			success: function(datos){
+					var obj = eval("(" + datos + ")");
+
+					if (obj.ok)
+						$("#sugerencias").html( "<select onchange='Clona(this.value)'><option>Otro..</option>"+ obj.combohtml + "</select>");
+			  }
+	});
+
+}
+
+function Clona(nuevovalor){
+	if (nuevovalor=="Otro..")	
+		return;
+
+	$("#channel").val ( nuevovalor );
+
+}
+
+
+
+</script>
+
+<tr class="rematetabla">
+<td colspan="4" class="btncell">
+ <input  class=" ui-state-default ui-corner-all" value="<patTemplate:T>Guardar cambios</patTemplate:T>" type="submit" onclick="return ComprobarDatos()">
+ <input  class=" ui-state-default ui-corner-all  {CSSBTNREMOVE}" value="<patTemplate:T>Eliminar</patTemplate:T>" type="button" onclick="Eliminar()">
+ <input  class=" ui-state-default ui-corner-all" value="<patTemplate:T>Cancelar</patTemplate:T>" type="button" onclick="location.href='{MODNAME}.php'">
+</td>
+</tr>
+
+</table>
+
+
+</td><td>
+
+
+</td></tr>
+</table>
+
+</form>

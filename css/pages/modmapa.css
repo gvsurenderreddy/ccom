@@ -1,0 +1,18 @@
+
+
+
+
+.zona {
+	background-color: white;
+	border: 1px solid blue;
+	padding: 8px;
+	width: 100px;
+	min-height: 32px;
+}
+
+
+
+.zonaname {
+	font-size: 13px;
+	font-weight:bold;
+}

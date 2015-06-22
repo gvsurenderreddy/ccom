@@ -1,0 +1,180 @@
+
+<patTemplate:tmpl name="page">
+
+<html>
+<head>
+
+<patTemplate:tmpl name="headers" src="headers.txt" autoload="on" parse="on"/>
+	<!--<title>Informes</title>
+	<link href="css/main.css?r=2" rel="stylesheet" type="text/css" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<script language="javascript1.2" src="js/prototype.js"></script>
+
+  	<script type="text/javascript" src="calendariojs/calendar.js"></script>
+  	<script type="text/javascript" src="calendariojs/lang/calendar-es.js"></script>
+  	<script type="text/javascript" src="calendariojs/calendar-setup.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="calendariojs/calendar-brown.css" />-->
+
+
+
+</head>
+<body>
+<img src="img/bannerhorizontal.png"  style="zwidth: 100%;height: 53px" />
+
+<div id="contenedor">
+
+
+<div id="bannergeneral" class="banner aislado">
+<table class="enbanner" border="0">
+<tr>
+<td>
+<input  class="btn"  type="button" value="Volver" id="botonvolver" onclick="Volver()"/>
+</td><td align="right">
+
+</td></tr>
+</table>
+</div>
+
+
+
+<table  style="margin-bottom: 8px">
+<tr>
+<td colspan='2'>
+	<select id="esListas" name="esListas" onchange="ActualiarCamposVisibles()">
+	<option></option>
+		<?php echo $outItems; ?>
+	</select>
+
+	<input   class="btn"  type='button' value="listar" onclick="CambiaListado()"/>
+
+</td>
+</tr>
+<tr  style="display: none;" class="filadatos" id="getDesde">
+  <td>Desde:</td><td valign="center"> <input id="Desde" type="text" name="desde" class="fecha flat"  value="{HOY}"/>
+  <img id='ResdesdeTrig' src='img/calendar-up.gif' align="absmiddle" />
+  </td>
+</tr>
+<tr  style="display: none;" class="filadatos" id="getHasta">
+  <td>Hasta:</td><td> <input id="Hasta" type="text" name="hasta" class="fecha flat"  value="{HOY}"/>
+  <img id='ReshastaTrig' src='img/calendar-up.gif' align="absmiddle" />
+  </td>
+</tr>
+<tr  style="display: none;" class="filadatos" id="getIdDelegacion">
+<td>Delegación:</td>
+<td>
+	<select id="IdDelegacion" name="IdDelegacion">
+	<?php	echo genComboDelegaciones(); ?>
+	</select>
+</td>
+</tr>
+
+<tr style="display: none;" class="filadatos" id="getEstado">
+<td>Estado pedido:</td>
+<td>
+	<select name="Estado" id="Estado">
+	<?php echo genComboEstadosPedido(); ?>
+	</select>
+</td>
+</tr>
+
+<tr style="display: none;" class="filadatos" id="getCodCliente">
+<td>Cod Cliente:</td>
+<td> <input id="CodCliente"  class='flat'  type="text" name="CodCliente" class="codigo"  value="" style="width: 8em"/>
+</td>
+</tr>
+
+
+</table>
+
+
+
+<iframe style="width:98%; height: 400;border:1px solid gray;background-color: white" border='0' name='webarea' id='webarea'>
+</iframe>
+
+
+
+
+
+</div>
+
+
+<script>//<![CDATA[
+
+function CambiaListado() {
+	var idlista 	= $("#esListas").val();
+	var $web 	= $("#webarea");
+	var url = "listado.php?id="+idlista+
+		"&Desde="+$("#Desde").val() +
+		"&Hasta="+$("#Hasta").val() +
+		"&IdDelegacion="+$("#IdDelegacion").val()+
+		"&Estado="+$("#Estado").val()+
+		"&CodCliente="+$("#CodCliente").value+
+		"&r=" + Math.random();
+
+	$web.attr("src", url) ;
+}
+
+function Mostrar( idmostrar){
+	var $this = $("#get"+ idmostrar );
+
+	if ( $this.length ){
+		$this.show();
+	}
+}
+
+function SetActive( val ){
+
+	val = new String( val);
+
+	var dinterface = val.split(",");
+
+	jQuery.hide("#getDesde");
+	jQuery.hide("#getHasta");
+	jQuery.hide("#getIdDelegacion");
+	jQuery.hide("#getEstado");
+	jQuery.hide("#getCodCliente");
+
+	for( t=0;t<dinterface.length;t++){
+		//Mostrar(dinterface[t]);
+
+		valor = "get" + dinterface[t];
+		if (valor){
+
+			if ($(valor)){
+				jQuery.show( valor);
+			}
+		}
+	}
+
+}
+
+
+function ActualiarCamposVisibles(){
+	var key = $("esListas").value;
+
+	var filtro = activos[key];
+
+	SetActive( filtro );
+}
+
+
+var activos = new Array();
+
+{FILTROS}
+
+
+
+function Volver(){
+	location.href="modmapa.php";
+	//history.go(-1);
+}
+
+
+
+//]]>
+</script>
+</body>
+</html>
+
+
+</patTemplate:tmpl>

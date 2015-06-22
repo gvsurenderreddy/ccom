@@ -1,0 +1,110 @@
+
+<patTemplate:tmpl name="page">
+<html>
+
+<head>
+<patTemplate:tmpl name="headers" src="headers.txt" autoload="on" parse="on"/>
+	<script type="text/javascript">
+	$(function() {
+		//jquery code here
+		$("#login").focus();				
+	
+		var esErrorLogin = '{ESERRORLOGIN}';
+
+		if (esErrorLogin == "error" ){
+			$("#mensajeLogin").html("<patTemplate:Translate>No se pudo loguear</patTemplate:Translate>");
+			$("#mensajeLogin").show();
+		} 	
+
+
+	});
+	</script>
+
+<!--[if ie]>
+<style type="text/css">
+
+body  {
+	text-align: center;
+}
+
+</style>
+<![endif]-->
+
+</head>
+<body>
+
+<patTemplate:tmpl name="cabeza" src="cabeza.txt" autoload="on" parse="on"/>
+
+
+<div id="root">
+
+<div id="contenedor">
+
+
+<!--
+<p>info:[{INFO}]</p>
+-->
+
+
+<div id="mensajeLogin">
+</div>
+
+<style>
+
+ #mensajeLogin {
+  position: absolute;
+  top: 80px;
+  left: 80px;
+  background-color: white;
+  width: 200px;
+  zheight: 40px;
+  border: 1px solid orange;
+  padding: 8px;
+  padding-left: 32px;
+  background-image: url(icons/alert1.jpeg);
+  background-repeat: no-repeat;
+  background-position: 4 4;
+  display:none;
+}
+
+</style>
+
+
+<div style="text-align:center;margin-top: 100px;">
+
+<form method="post" action="login.php">
+<input type="hidden" name="modo" value="login" />
+
+
+<table  border="0" style="width: 400px;margin: auto; background-color: #eee;padding: 24px;border: 1px solid gray">
+<thead>
+<th colspan="2">Entre su nombre de usuario y contraseña</th>
+</thead>
+<tbody>
+<tr><td><pattemplate:Translate>Usuario</pattemplate:Translate></td><td><input type="text" name="login" id="login" /></td></tr>
+<tr><td><pattemplate:Translate>Contraseña</pattemplate:Translate></td><td><input type="password" name="pass" /></td></tr>
+<tr><td></td><td><input type="submit"><br></td></tr>
+</tbody>
+</table>
+<center>Programa subvencionado por el Gobierno de Aragón</center>
+</form>
+</div>
+
+
+
+
+
+
+
+
+<patTemplate:tmpl name="navegador" src="vacio.txt" autoload="off" parse="on"/>
+
+</div>
+
+</div>
+<patTemplate:tmpl name="copyright" src="legal.txt" autoload="on" parse="off"/>
+
+
+</body>
+</html>
+</patTemplate:tmpl>

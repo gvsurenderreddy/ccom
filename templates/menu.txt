@@ -1,0 +1,106 @@
+
+
+<div id="navcontainer">
+	<ul id="nav">
+		<li class="cabeceraSeccionMenu">			
+		<patTemplate:Translate>Explotación</patTemplate:Translate></li>
+
+		<patTemplate:Auth command="modmapa/">
+		<li class="lmapa"><a href="modmapa.php"><span class="ikmenu ik_network"></span>
+		<patTemplate:Translate>Mapa</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modcentral/">
+		<li><a href="modcentral.php" id="link_central"><span class="ikmenu ik_listado"></span>
+		<patTemplate:Translate>Comunicaciones</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modreglas/">
+		<li><a href="modeac.php"><span class="ikmenu ik_wrule"></span>
+		<patTemplate:Translate>Reglas</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modetiquetas/">
+		<li><a href="modlabels.php"><span class="ikmenu ik_producto16"></span>
+		<patTemplate:Translate>Etiquetas</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modcontactos/">
+		<li><a href="modcontacts.php"><span class="ikmenu ik_group"></span>
+		<patTemplate:Translate>Contactos</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modpanel/">
+		<li><a href="modpanel.php"><span class="ikmenu ik_home"></span>
+		<patTemplate:Translate>Panel de usuario</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modpaneladmin/">
+		<li><a href="modpaneladmin.php"><span class="ikmenu ik_niceinfo"></span>
+		<patTemplate:Translate>Panel servidor</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+
+		<li class="cabeceraSeccionMenu"><patTemplate:Translate>Administración</patTemplate:Translate></li>
+		
+		<patTemplate:Auth command="modusuarios/">
+		<li class="l2"><a href="modusuarios.php"><span class="ikmenu ik_usuarios"></span>
+		<patTemplate:Translate>Usuarios</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modlistado/">
+		<li class="l2"><a href="modlistados.php"><span class="ikmenu ik_listado"></span>
+		<patTemplate:Translate>Listados</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modbuzones/">
+		<li class="l2"><a href="modchannels.php"><span class="ikmenu ik_inbox"></span>
+		<patTemplate:Translate>Buzones</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modcanales/">
+		<li class="l2"><a href="modtasks.php"><span class="ikmenu ik_channel1"></span>
+		<patTemplate:Translate>Canales</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modgrupos/">
+		<li class="l2"><a href="modgrupos.php"><span class="ikmenu ik_group"></span>
+		<patTemplate:Translate>Grupos</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<li class="cabeceraSeccionMenu"><patTemplate:Translate>Mantenimiento</patTemplate:Translate></li>
+
+		<patTemplate:Auth command="modusuarios/">
+		<li class="l2"><a href="modlocation.php"><span class="ikmenu ik_location"></span>
+		<patTemplate:Translate>Centros</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modconfig/">
+		<li class="l2"><a href="modconfig.php"><span class="ikmenu ik_parametros"></span>
+		<patTemplate:Translate>Parametros</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modtesteo/">
+		<li class="l2"><a href="modtesteo.php"><span class="ikmenu ik_pcgreen1"></span>
+		<patTemplate:Translate>Autochequeo</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modperfiles/">
+		<li class="l2"><a href="modprofile.php"><span class="ikmenu ik_profilesm"></span>
+		<patTemplate:Translate>Perfiles</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<patTemplate:Auth command="modpasarelas/">
+		<li class="l2"><a href="modpasarelas.php"><span class="ikmenu ik_conexion"></span>
+		<patTemplate:Translate>Pasarelas</patTemplate:Translate></a></li>
+		</patTemplate:Auth>
+
+		<li class="cabeceraSeccionMenu"><patTemplate:Translate>Usuario</patTemplate:Translate></li>
+
+		<li class="l2"><a href="login.php"><span class="ikmenu ik_logout"></span>
+		<patTemplate:Translate>Salir</patTemplate:Translate></a></li>
+	</ul>
+</div>
+
+
+

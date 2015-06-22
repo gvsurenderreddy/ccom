@@ -1,0 +1,106 @@
+
+<patTemplate:tmpl name="page">
+
+<table width="100%" class="desolapa">
+
+<tr><td class="colz1">Etiquetas:</td><td valign="center" class="dedato">
+
+<patTemplate:tmpl name="list_etiquetas">
+<span class="idcom tagit" id="label_{IDLABELCOM}">
+<b class="tagit-choice">
+<patTemplate:var name="etiqueta" modifier="html8"/>
+<zform action='modcentral.php' method='post' style='display:inline'>
+<a class="close"
+
+style="font-family:	'Lucida Sans Unicode','Lucida Grande',sans-serif;
+font-size:	12px"
+
+
+href="#"
+
+onclick="return quitarEtiqueta(this)"
+
+id='removelabel_{IDLABELCOM}'
+
+>x</a>
+<input type="image" src="icons/del.png" value='{IDLABELCOM}'  onclick="quitarEtiqueta(this)"  class="oculto"/>
+<input type="hidden" name="modo" value='quitaretiqueta' /></zform></b>
+</span>
+</patTemplate:tmpl>
+
+
+&nbsp;</td></tr>
+<tr>
+<td></td>
+<td colspan=""  valign="center">
+	<div>
+	<form action="modcentral.php" id="creaetiquetas" method="post">
+		<input type="hidden" name="modo" value="newtag" />
+		<input type="hidden" name="id_comm" value="{ID}" id="id_comm_newtag"/> &nbsp;
+		<input type="text" name="newtag" id="newtag" /><input type="submit" value="+ A&ntilde;adir" />
+	</form>	
+	</div>
+</td>
+</tr>
+</table>
+
+
+<script>
+
+
+function quitarEtiqueta(etiqueta){
+	var idlabelcom = $(etiqueta).val();
+	var id_comm = parseInt($("#id_comm_newtag").val());
+
+	if (!idlabelcom){
+		var myid = new String($(etiqueta).attr('id')); 	id='removelabel_{IDLABELCOM}'
+		var myid2 = myid.replace("removelabel_","");
+		idlabelcom = myid2;
+	}
+
+	$("#label_" + idlabelcom).remove();
+
+	$.ajax({
+				type: "POST",
+				url: "ajax.php",
+				data: "modo=eliminarLabel&idlabelcom="+idlabelcom,
+				success: function(){
+					setTimeout("RecargaSolapaModo("+id_comm+", 'etiquetas')",200);
+				}
+	});
+}
+
+
+function CrearEtiqueta(label,id_comm){
+	$.ajax({
+							type: "POST",
+							url: "ajax.php",
+							data: "modo=newTag&newtag=" + escape(label)+"&id_comm="+id_comm,
+							success: function(){
+								//alert("done!");
+								$("#newtag").val("");
+							}
+	});				
+}
+
+
+$("#creaetiquetas").submit(function(){
+	var etiqueta = $("#newtag").val();
+	var id_comm = parseInt($("#id_comm_newtag").val());
+
+	CrearEtiqueta(etiqueta,id_comm);
+
+	setTimeout("RecargaSolapaModo("+id_comm+", 'etiquetas')",200);
+	return false;
+});
+
+
+
+
+</script>
+
+
+
+</patTemplate:tmpl>
+
+

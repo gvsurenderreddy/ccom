@@ -1,0 +1,19 @@
+
+
+<!--
+
+<div class="navegador">
+
+<table align="center">
+<tr><td  align="right"> 
+<form method='post' action='{MODNAME}.php?min={PAGANTERIOR}'>
+<input type='submit'  class="btn ui-state-default ui-corner-all" value='Anterior &lt;&lt;' {ANTDISABLEDHTML} />
+</form>
+</td><td>
+<form method='post' action='{MODNAME}.php?min={PAGSIGUIENTE}'>
+<input type='submit'  class="btn ui-state-default ui-corner-all" value='Siguiente &gt;&gt;' {SIGDISABLEDHTML}/>
+</form>
+</table>
+</div>
+
+-->

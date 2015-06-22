@@ -1,0 +1,19 @@
+
+
+<h1>Sin autorización</h1>
+
+
+<p>Su usuario no tiene registrado acceso para la seccion que ha intentado acceder</p>
+
+<p>Para acceder a la aplicación, por favor use el <a href="login.php" class="textlink">formulario de acceso</a></p>
+
+<a href="#" onclick="$('#debug_data').attr('style','');$('#debug_data').show();return false"><h2>ver debug</h2></a>
+<div style="visibility: hidden" id="debug_data">
+<p>Info: '{PATHFALLIDO}'</p>
+<p style="border-bottom:1px solid gray">Data: '{DATA1}'</p>
+<p style="border-bottom:1px solid gray">Data: '{DATA2}'</p>
+<p style="border-bottom:1px solid gray">Data: '{DATA3}'</p>
+<p style="border-bottom:1px solid gray">Data: '{DATA4}'</p>
+</div>
+
+

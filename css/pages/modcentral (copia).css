@@ -1,0 +1,262 @@
+
+/* para central */
+
+
+
+
+
+#lineas_de_comm {
+ zwidth: 840px;
+ width: 100%;
+ zmargin-left: auto;
+ zmargin-right: 0px;
+}
+
+
+
+.enlaceTituloCom {
+ display: block;
+ padding-left: 16px;
+ padding-right: 16px;
+ font-size: 12px;
+ padding-top: 4px;
+ padding-top: 0px;
+
+ padding-bottom: 4px;
+ padding-bottom: 0px;
+ border-top: 8px solid white;
+ border-top:0px;
+ cursor: hand;
+ cursor: pointer;
+}
+
+
+.leido b {
+	zfont-weight: normal;
+	color: #999;
+	zbackground-color: red;
+}
+
+.sinleer b {
+	color:black;
+	zfont-weight: bold;
+}
+
+
+
+#cajafiltros2 {
+
+ margin-right: 8px;
+ margin-left: 7px;
+}
+
+
+/* para central */
+
+.submenux {
+ margin-left: 8px;
+}
+
+
+#cajalinkslabels {
+ display: block;
+}
+
+
+th.cabecera ,th.cabecera * {
+	white-space: nowrap
+}
+
+.cajaEnlacesSolapas {
+   /* Zona de enlaces/solapas para un comunicado desplegado */
+   zbackground-color: white;
+   margin: 0px;
+   padding:4px;
+   color: #ccc;
+   zbackground-color:  #fff1d8;
+   padding-left: 16px;
+   border: 0px;
+   zborder-top: 2px solid orange;
+   zborder-right: 4px solid gray;
+   zborder-left: 4px solid gray;
+}
+
+.cajaEnlacesSolapas a {
+   font-weight: bold;
+   color: orange;
+   color: black;
+   text-decoration: none;
+   color: #d05627;
+}
+
+.cajaEnlacesSolapas a:hover{
+  text-decoration: underline;
+}
+
+
+/*
+  ".seleccionado":
+   elemento seleccionado, selecciona solo
+    el llamado 'titulo'
+ */
+
+
+.seleccionado td, .seleccionado b, .seleccionado *, .seleccionado tr {
+  zcolor: white;
+  background-color: #ffdfa4;;
+}
+
+
+
+
+.seleccionado_datos, .seleccionado_datos td, .seleccionado_datos b, .seleccionado_datos *, .seleccionado_datos tr
+, .seleccionado_datos , .seleccionado_datos td * {
+  display: none;
+}
+
+
+.filaTitulo td {
+     zbackground-image: url(../img/bgblue2.gif);
+     background-image: none;
+     zbackground-color: #fbefea;
+}
+
+
+.titulofilapar {
+  zbackground-image: url(../img/bgblue2.gif);
+  zcolor:blue;
+  zbackground-color:red;
+}
+
+.titulofilapar td {
+   zbackground-image: url(../../img/bgblue3.gif);
+   zbackground-image: none;
+}
+
+
+.filaDatos td {
+  zbackground-color: white;
+}
+
+#lineas_de_comm td {
+	zborder: 0px none;
+	zborder-color: #ffd588;
+	zborder-color: #fff3dc;
+	zborder-color: white;
+	zborder-color: white;
+	border-color: #fff3dc;
+}
+
+/*
+	<tr 
+	 class="filaListado filaDatos"
+	  id="datos_172552">
+	
+	.filaDatos: en una comunicacion,
+	la parte no de titulo sino de datos
+*/
+
+
+.filaTitulo td, .filaDatos td  {
+    background-color: #ffbc40;
+   background-color: #ffeece;
+   background-color: #fff1d8;
+   background-color: white;   
+}
+
+
+
+
+.filaTitulo a:hover {
+   background-color: #ffdfa4;   
+   background-color: #ffa500;
+   zbackground-color: white;
+}
+
+.seleccionado td a:hover {
+   background-color: #ffdfa4;
+}
+
+
+.filaDatospar td, .titulofilapar td {
+ zbackground-color: #e9eee4;
+ zbackground-color: #ffce73;
+  zbackground-color: #ffdd9e;
+  zbackground-color: #fff5e2;
+  zbackground-color: #fff8ea;
+  zbackground-color: white;
+}
+
+/* todos */
+.filaTitulo td, .filaDatos td,.filaDatospar td, .titulofilapar td, #lineas_de_comm td  {
+
+  background-color: #fff1d8;
+
+}
+
+
+.col1 ,* {
+  color: black;
+}
+
+/* Estilo compacto para menu de canales */
+ul#menux li a {
+  padding-left: 2px;
+  padding-right: 2px;
+  border-right: 1px solid #eee;
+  border-top: 1px solid #eee;
+  min-width: 60px;
+  zbackground-color: #efefef;
+}
+
+.updown {
+ margin-right: 2px;
+}
+
+
+
+.label-filtro {
+	display: inline-block;
+	width: 100px;
+}
+
+
+input.cod_cliente {
+	width: 8em;
+}
+
+input.idcomm {
+	width: 6em;
+
+}
+
+form.etiquetador, form.etiquetador_canal {
+	display: inline-block;
+}
+
+.mensajeListaVacia  {
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+	padding: 20px;
+}
+
+.idcomm {
+	color:red;margin-right: 16px
+}
+
+.selcomm {
+	float:left;padding-right: 16px;margin-right: 7px;
+}
+
+.solapascontenedor {
+	max-height: 210px!important;
+	height: 210px;
+	overflow:auto;
+	border-bottom:2px solid orange;
+	width:100%;
+	background-color: #fefef1;
+}
+
+
+

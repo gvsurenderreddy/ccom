@@ -1,0 +1,132 @@
+
+<patTemplate:tmpl name="list">
+
+<table  class="enbanner cajalistado" >
+<tr>
+<td>
+
+<table cellspacing='0' cellpadding='0'>
+<tr class="headListado">
+<th>
+<patTemplate:Translate>Pasarelas activas</patTemplate:Translate>
+</th>
+</tr>
+
+	<patTemplate:tmpl name="list_entry" type="oddeven">
+	<patTemplate:sub condition="__even">
+
+	<tr class="filaListado {ESTILOCSS} odd">
+	<td><patTemplate:var name="name" /> &nbsp;</td>
+	</tr>
+	</patTemplate:sub>
+	<patTemplate:sub condition="__odd">
+	<tr class="filaListado {ESTILOCSS} even">
+	<td><patTemplate:var name="name" /> &nbsp;</td>
+	</tr>
+
+	</patTemplate:sub>
+	</patTemplate:tmpl>
+
+<!-- <tr class="rematetabla"><td colspan="4" valign="center">
+&nbsp;
+</td></tr> -->
+</table>
+
+
+
+<table cellspacing='0' cellpadding='0' style="margin-top: 16px">
+<tr class="headListado">
+<th>
+<patTemplate:Translate>Usuarios activos</patTemplate:Translate>
+</th>
+</tr>
+
+	<patTemplate:tmpl name="active_users" type="oddeven">
+	<patTemplate:sub condition="__even">
+
+	<tr class="filaListado {ESTILOCSS} odd">
+	<td><patTemplate:var name="name" modifier="html8" /> &nbsp;</td>
+	</tr>
+	</patTemplate:sub>
+	<patTemplate:sub condition="__odd">
+	<tr class="filaListado {ESTILOCSS} even">
+	<td><patTemplate:var name="name" modifier="html8" /> &nbsp;</td>
+	</tr>
+
+	</patTemplate:sub>
+	</patTemplate:tmpl>
+
+<!--<tr class="rematetabla"><td colspan="4" valign="center">
+&nbsp;
+</td></tr>-->
+</table>
+
+
+
+</td><td>
+
+<table border="0" style="margin: 8px">
+<tr>
+<td>
+Alerta: sin alertas
+
+
+<table>
+<tr  class="headListado"><th colspan="2"><center><patTemplate:Translate>Comunicaciones</patTemplate:Translate></center></th></tr>
+<tr class="filaListado"><td><b><patTemplate:Translate>Nº de comunicaciones</patTemplate:Translate></b></td><td>{TOTALCOM}</td></tr>
+<tr class="filaListado"><td><b><patTemplate:Translate>Fecha ultima comunicación</patTemplate:Translate></b></td><td>{LASTCOM}</td></tr>
+</table>
+
+<br>
+
+<table>
+<tr  class="headListado"><th colspan="2"><center><patTemplate:Translate>Procesos</patTemplate:Translate></center></th></tr>
+
+	<patTemplate:tmpl name="procesos" type="oddeven">
+	<patTemplate:sub condition="__even">
+
+	<tr class="filaListado"><td>{PROCESO}</td></tr>
+
+	</patTemplate:sub>
+	<patTemplate:sub condition="__odd">
+
+	<tr class="filaListado"><td>{PROCESO}</td></tr>
+	</patTemplate:sub>
+	</patTemplate:tmpl>
+</table>
+
+
+
+
+
+</td>
+</tr></table>
+
+
+
+</td>
+</tr></table>
+
+<script>
+
+
+
+	 setTimeout('location.reload(true)',1000*3); // forces a reload from the server
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</patTemplate:tmpl>

@@ -1,0 +1,98 @@
+
+
+<form action='{MODNAME}.php' method='post' id="validateMe">
+
+<input type='hidden' name='modo' value='{MODOEDICION}' />
+<input type='hidden' name='id_user' value='{ID_USER}' />
+
+
+<table class="cajaedicion"  border="0" cellpadding="0" cellspacing="0">
+<tr class="headListado">
+<td colspan="3"><patTemplate:var name="modoediciontxt" modifier="html8"/></td></tr>
+<tr class="filaListado filaImpar">
+	<td class='col1'>Nombre *</td>
+	<td colspan="2"><input  class='flat required' id="name" style='width: 20em' type='text' name='name'
+	value='<patTemplate:var name="name" modifier="html8"/>'/></td>
+</tr>
+<tr class="filaListado filaPar">
+	<td class='col1'>Apellido 1</td>
+	<td colspan="2"><input  class='flat' id="s_name1" style='width: 20em' type='text' name='s_name1'
+	 value='<patTemplate:var name="s_name1" modifier="html8"/>'/></td>
+</tr>
+<tr class="filaListado filaImpar">
+	<td class='col1'>Apellido 2</td>
+	<td colspan="2"><input  class='flat' id="s_name2" style='width: 20em' type='text' name='s_name2'
+	 value='<patTemplate:var name="s_name2" modifier="html8"/>'/></td>
+</tr>
+<tr class="filaListado filaPar">
+	<td class='col1'>Email *</td>
+	<td colspan="2"><input  class='flat required' id="email" style='width: 12em' type='text' name='email'
+	 value='<patTemplate:var name="email" modifier="html8"/>'/></td>
+</tr>
+<tr class="filaListado filaImpar">
+	<td class='col1'>Teléfono</td>
+	<td colspan="2"><input  class='flat' id="phone" style='width: 12em' type='text' name='phone'
+	 value='<patTemplate:var name="phone" modifier="html8"/>'/></td>
+</tr>
+	<tr class="filaListado filaPar">
+	<td class='col1'>Identificación *</td>
+	<td colspan="2"><input  class='flat' id="user_login"
+		class="identificador required" type='text'
+		name='user_login' value='<patTemplate:var name="user_login" modifier="html8"/>'/></td>
+</tr>
+<tr class="filaListado filaImpar">
+	<td class='col1'>Password *</td>
+	<td colspan="2"><input  class='flat required' id="pass_login"
+		autocomplete="off"  class="identificador" type='password'
+		name='pass_login' value='<patTemplate:var name="pass_login" modifier="html8"/>'/></td>
+</tr>
+<tr class="filaListado filaImpar">
+	<td class='col1'>Perfil de usuario</td>
+	<td colspan="2"><select name='id_profile'  class="ui-state-default"><option value="0"></option><patTemplate:var name="optionsselectprofile" /></select></td>
+</tr>
+
+
+<tr class="filaListado filaImpar">
+	<td class='col1'>Grupos a los que pertenece</td>
+	<td colspan="2"> 
+		<select class="contooltip_nw" tooltip="Pulse doble click para quitar grupos" id="grupoEsMiembro" size="5" style="min-width: 300px;width:300px">
+		<patTemplate:var name="lista_groupsismember" />
+		</select> 		
+		
+		<table><tr><td>
+		<select id="elijeGrupo"  class="ui-state-default"><patTemplate:var name="listaDeGrupos"  /></select> 
+		<input type="button" value="Unir a este grupo" onclick="AgnadirGrupo()" class="ui-state-default" />
+		</td></tr></table>
+		<input id="groupismember" type="hidden" value="<patTemplate:var name="groupsismember" />" name="groupsismember"/>	
+		
+	</td>
+</tr>
+
+
+<script>
+
+
+var Global = new Object();
+
+Global.id = '{ID_USER}';
+
+
+</script>
+
+<tr  class="rematetabla">
+<td colspan="4" class="btncell">
+ <input  class="btn ui-state-default ui-corner-all" value="Guardar cambios" type="submit" onclick="return ComprobarDatos()">
+ <input  class="btn ui-state-default ui-corner-all {CSSBTNREMOVE}" value="<patTemplate:T>Eliminar</patTemplate:T>" type="button" onclick="Eliminar()">
+ <input  class="btn ui-state-default ui-corner-all" value="Cancelar" type="button" onclick="location.href='{MODNAME}.php'">
+</td>
+</tr>
+
+</table>
+
+
+
+</form>
+
+
+
+

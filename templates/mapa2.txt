@@ -1,0 +1,371 @@
+
+<patTemplate:tmpl name="page">
+<html>
+
+<head>
+<patTemplate:tmpl name="headers" src="headers.txt" autoload="on" parse="on"/>
+<link href="css/menuportada.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery.gamequery-0.4.0.js"></script>
+
+	<script type="text/javascript">
+
+	// Global constants:
+	var REFRESH_RATE = 20;
+
+	var GRACE = 2000;
+	var MISSILE_SPEED = 10; //px per frame
+
+	var PLAYGROUND_HEIGHT = 500;
+    var PLAYGROUND_WIDTH = 1024;
+
+	/*Constants for the gameplay*/
+	var smallStarSpeed    	= 1 //pixels per frame
+	var mediumStarSpeed		= 3 //pixels per frame
+	var bigStarSpeed		= 4 //pixels per frame
+
+	// Function to restart the game:
+	function restartgame(){
+		window.location.reload();
+	};
+
+	var amplitud	= 60;
+	var frecuencia	= 0.004;
+
+	var nuevosDocs;
+	var docAnimation = new Array();
+
+
+	$(function() {
+		//jquery code here
+
+		var w= $(window).width();//fix for the evil² ie.
+
+		// Gloabl animation holder
+		docAnimation		= new $.gameQuery.Animation({imageURL: "icons/doc.png"});
+
+		$("#playground").playground({height: PLAYGROUND_HEIGHT, width: PLAYGROUND_WIDTH});
+
+		if(0)
+			$.playground().addSprite("doc", {animation: docAnimation, posx: 100, posy: 100, width: 16, height: 16}).end();
+
+		$("#doc").attr("mybasetop",100);
+
+		if(0)
+		$.playground().registerCallback(function(){
+			/*
+			var t=t+1;
+
+			$("#visor").html("r:"+Math.random());
+
+			var cleft = parseInt($("#doc").css("left"))+4;
+
+			if (cleft>1000)
+				cleft = 1;
+
+			$("#doc").css("left",cleft+"px");
+
+			var mybasetop = $("#doc").attr("mybasetop");
+			mybasetop = 100;
+
+			var time = (new Date()).getTime();
+			var newTop = (mybasetop + Math.cos(time*frecuencia)*amplitud )
+
+			$("#doc").css("top", newTop + "px"  );
+
+			var r = parseInt(Math.random() * 10000);
+
+
+			//$.playground().addSprite("trail", {animation: docAnimation, posx: cleft, posy: newTop, width: 16, height: 16}).end();
+			$("#playground").addSprite("trail"+r, {animation: docAnimation, posx: cleft, posy: newTop, width: 16, height: 16}).end();
+			$("#trail"+r).fadeOut(3000, function() { $(this).remove(); });
+			*/
+		}, REFRESH_RATE);
+
+
+		$.playground().startGame(function(){
+			var t=t+1;
+		});
+
+
+		OrganizarCentros();
+
+
+		Rellamar(0);
+
+	});
+
+
+	function animacionNuevosDocs(idcentro, numMensajes){
+
+		if(!idcentro) return;
+		if(!numMensajes) return;
+
+		var cx = 100;
+		var cy = 100;
+
+		var idnum = id2num[idcentro];
+
+		var datocentro = datos[idnum];
+
+		if(datocentro){
+			cx = datocentro["css_x"] + 80;
+			cy = datocentro["css_y"] -56;
+		}
+ 	}
+
+
+	</script>
+
+<style>
+
+html {
+  background-image: url(img/bg4.gif);
+
+}
+
+
+</style>
+
+
+<!--[if ie]>
+<style type="text/css">
+
+body  {
+	/*text-align: center;*/
+}
+
+</style>
+<![endif]-->
+
+</head>
+<body>
+
+<patTemplate:tmpl name="cabeza" src="cabeza.txt" autoload="on" parse="on"/>
+
+
+<div id="root">
+
+<div id="contenedor">
+
+<script>
+
+
+function OrganizarCentros(){
+	var tt=0;
+	var dy = 80;
+	var dx = 200;
+	var	altoUnidad=80;
+	var separacionHorizontal=140;
+
+	var H = $(window).height();
+
+	var unidadesCaben = Math.floor((H-dy)/altoUnidad)-1;
+
+
+	$(".globo").each(function(){
+		var $this = $(this);
+		var old = $this.offset();
+		$this.css("left", dx + "px" );
+		$this.css("top", (dy+ tt*altoUnidad)+"px");
+		tt++;
+		if (tt>unidadesCaben){
+			tt=0;
+			dx+= separacionHorizontal;
+		}
+	});
+
+}
+
+//graficomapa
+
+
+
+</script>
+
+
+
+<div style="padding:4px;background-color: white;z-index:1"  id="horizonbar">
+<patTemplate:tmpl name="menu" src="menu.txt" autoload="on" parse="on"/>
+</div>
+
+
+
+<img
+	id="graficomapa"
+	src="theme/mapa.gif"
+    style="position: absolute; top:48px;left: 128px;border: 0px solid red;z-index:0"
+	class="oculto"
+/>
+
+<div id="cajasZonas">
+
+<patTemplate:tmpl name="list_entry">
+<div
+		class='globo'
+
+		style='
+		position:absolute;
+        width: 100px;
+        height: 64px;
+		background-image: url(img/75a.png);
+		padding-top: 2px;
+		padding-bottom: 6px;
+		padding-left:4px;
+		padding-right:4px;
+		top: <patTemplate:var name="css_y" />px;
+		left: <patTemplate:var name="css_x" />px;
+		zz-index: 0;
+        border: 2px solid gray;
+		'>
+		<div id='zona_<patTemplate:var name="id_label" />' class='actualizable' >
+
+		<span id='zona_name_<patTemplate:var name="id_label" />' class='zonaname'><patTemplate:var name="name" /></span>
+		<span id='zona_nummsg_<patTemplate:var name="id_label" />'></span>
+		<span id='zona_text_<patTemplate:var name="id_label" />'></span>
+		</div>
+		</div>
+</patTemplate:tmpl>
+
+
+</div>
+
+<patTemplate:var name="zonas" />
+
+<div id="playground" style="border: 0px solid red">
+
+<div id="visor">
+</div>
+<div id="visor2">
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+var Global = new Object();
+
+Global.rellamada 		= 4000;//normalmente se llama cada 4 segundos
+Global.rellamadaerror 	= 15000;//si hay error, se rellama en 15 segundos
+Global.cadlocation 		= "";
+Global.numerrors 		= 0;
+Global.debug 			= true;//activa el modo de pruebas.
+
+function ActualizarEstado(){
+
+	if (!Global.consultando) {
+		Global.consultando = true;
+		$.ajax({
+			url: 'ajax.php',
+			type: 'POST',
+			data: "modo=estadolabels&labels="+ Global.cadlocation,
+			dataType: "json",
+			timeout: 1000,
+			error: function(){
+				Global.consultando = false;
+				Global.numerrors += 1;
+				return;
+			},
+			success: function(rows){
+				// do something with xml
+				Global.consultando = false;
+				Global.numerrors = 0;
+
+				if (!ActualizarEstado.visto && Global.debug){
+					ActualizarEstado.visto = true;
+				}
+
+				ActualizarEstado.Procesar(rows);
+				return;
+			}
+		});
+	}
+
+
+	if (Global.numerrors) {
+		if (!Global.debug)
+			Rellamar(Global.rellamadaerror);
+	}	else {
+		Rellamar(Global.rellamada);
+	}
+
+}
+
+
+var numSinLeerEnCentro = new Array();
+
+ActualizarEstado.ProcesarCentro = function (idcentro, obj){
+
+	if(!obj)	return;
+	if(!idcentro) return;
+
+
+	var namezona = "#zona_text_" + obj.id_label;
+
+	if($(namezona).length) {
+		var numSinLeer = obj["sinleer"];
+
+		var html = (numSinLeer>0)? "<sup style='color:red;font-weight:bold'>" +numSinLeer+ "</sup>":"";
+
+		var oldNum = numSinLeerEnCentro[ idcentro ];
+		numSinLeerEnCentro[ idcentro ] = numSinLeer;
+		animacionNuevosDocs( idcentro, numSinLeer - oldNum );
+
+		var x = obj.interes;
+
+		html += "<br>";
+		for (var i=0;i<x.length;i++){
+			var item = x[i];
+			var id_label = item.id_label;
+			var name = labelinteres2name[ id_label ];
+			var numSinLeer = item["num"];
+			html += "<div style='text-align: right' id='holder_num_"+numSinLeer+"' >"+name+ ": "+ numSinLeer + "</div>";
+		}
+		$(namezona).html(html);
+	}
+}
+
+
+ActualizarEstado.Procesar =  function(objdatos){
+	if (!Global.cadlocation) return;
+
+	var zones = Global.cadlocation.split(",");
+
+
+	for (x in zones){
+		var val = zones[x];
+		var obj = objdatos[val];
+
+		ActualizarEstado.ProcesarCentro(val, obj );
+  	}
+}
+
+
+function Rellamar(tiempo){
+	setTimeout( ActualizarEstado, tiempo);
+}
+
+
+for ( t=1; t<maxdatos; t++){
+	Global.cadlocation += ","+ datos[t].id_label;
+}
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
+</patTemplate:tmpl>

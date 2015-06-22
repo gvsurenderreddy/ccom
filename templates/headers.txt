@@ -1,0 +1,26 @@
+
+    <title>Ecomm :: {TITULOPAGINA} </title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+	<link href="css/main.css" v="?v={VERSIONCSS}" rel="stylesheet" type="text/css" />
+<!-- <link href="development-bundle/themes/base/ui.all.css" rel="stylesheet" type="text/css" /> -->
+<!--	<link href="css/ui-lightness/jquery-ui-1.8.1.custom.css" rel="stylesheet" type="text/css" />-->
+<!--	<link href="css/smoothness/jquery-ui-1.8.1.custom.css" rel="stylesheet" type="text/css" /> -->
+
+	<link href="css/pages/{MODNAME}.css" rel="stylesheet" type="text/css" />
+
+	<link href="css/macroicons.php" rel="stylesheet"  type="text/css" />
+
+	<script language="javascript1.2" src="js/pages/{MODNAME}.js"></script>
+
+
+<script language="javascript1.2" src="js/macrojs.php"></script>
+
+<!-- <script type="text/javascript" src="development-bundle/ui/ui.core.js"></script> -->
+<!-- <script type="text/javascript" src="development-bundle/ui/ui.tabs.js"></script> -->
+<!-- <script type="text/javascript" src="js/jquery.tablesorter.js"></script>  -->
+<!-- <script type="text/javascript" src="js/jqminmax-uncompressed.js"></script> -->
+
+<!--[if IE]>
+<![endif]-->
+

@@ -1,0 +1,26 @@
+
+// Instalando ecomm  //
+
+El siguiente documento cubre la instalación de Ecomm/CComm al respecto de la aplicación web. Ademas de instalar la aplicació, habria que instalar y configurar las distintas pasarelas, software y hardware, para tener un Ecomm/CComm Server completo.
+ 
+Pasos de instalación:
+
+1. Copiando ficheros programa en la carpeta web destino (normalmente /var/www )
+2. Creando base de datos sin datos (cargando el fichero esquema.sql)
+3. Copiando datos de usuarios y parametros (cargando el fichero datos.sql)
+4. Se loguea con el usuario por defecto ( Usuario: admin, contraseña: admin )
+5. Se personalizan los parametros con los path de la nueva instalación
+NOTA: son un tanto complicadas, habria que documentar que hace cada uno
+5.1 Es recomendable cambiar la contraseña del administrador a una que mezcle numeros y letras al azar y sea facil de recordar.
+6. Damos de alta los canales,perfiles, grupos que necesitamos
+7. Metemos a los usuarios en los grupos adecuados.
+8. Creamos "lugares" (nombre, y posicion Xpx,Ypx del mapa ). Estos actuan como delegaciones, centros o cualesquiera sea el concepto que necesitemos.
+9. (gateways) Damos de alta correos en la tabla gw_emails
+10. (gateways) Activamos pasarela de correo
+10.1 (gateways) Hay que introducir a mano los correos que vayamos a usar en la tabla gw_emails
+11. (gateways) Corremos rungateways.php para descargar todo el correo
+11.1 (gateways) Creamos un cron que llame a esta pagina cada minuto, para que se descargue el correo 
+12. Verificamos que se hayan populado correctamente las tablas que requieren una entrada con id 0: status, contacts, groups. En caso contrario, hacemos una insercion, y ajustamos el id a cero.
+
+
+

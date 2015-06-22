@@ -1,0 +1,134 @@
+<patTemplate:tmpl name="page">
+
+<html>
+<head>
+<patTemplate:tmpl name="headers" src="headers.txt" autoload="on" parse="on"/>
+
+	<script type="text/javascript">
+	$(function() {
+
+		if(typeof window.postCarga == 'function') {
+			postCarga();
+		}
+
+	});
+
+
+	</script>
+
+
+<body>
+
+
+<patTemplate:tmpl name="cabeza" src="cabeza.txt" autoload="on" parse="on"/>
+
+<p>&nbsp;</p>
+
+<table width="100%" border="1">
+
+<tr>
+<td>
+Buscar: <input type="text" name="buscando" id="cajaBuscandoContacto" />
+<input type="submit" value="Busca" onclick="ActualizarEstado()">
+</td>
+<tr>
+<td id="contenedorResultados">
+
+
+</td>
+</table>
+
+
+<script>
+
+
+var Collection = new Array();
+var Global = new Object();
+Global.unicocliente = false;
+
+
+function ActualizarEstado(event){
+
+	var subcadena = $("#cajaBuscandoContacto").val();
+	//alert(subcadena);
+
+	$.ajax({
+			url: 'ajax.php',
+			type: 'POST',
+			data: "modo=cargaposiblesclientes&subcadena="+encodeURIComponent(subcadena),
+			dataType: "json",
+			timeout: 1000,
+			error: function(data){
+				$("#contenedorResultados").html( "ERROR:"+ data);
+				return;
+			},
+			success: function(rows){
+				var $main = $("#contenedorResultados");
+				//$main.html( rows.toSource() );
+
+				$main.html("");
+
+				var lines = rows.lines;
+
+				var html = "<select id='combo' multiple='multiple' style='width: 100%' onclick='recogeClick(this)'>";
+
+				Global.unicocliente = true;
+				Global.num = 0;
+
+				$(lines).each( function(index,item){
+					html += "<option "+
+					" id='dato_"+item.id_contact +"' "+
+					" value='"+item.id_contact+"'>"+item.name+"</option>";
+
+					Collection[ item.id_contact ] = item;
+					Global.num++;
+				});
+
+				Global.unicocliente = ( !Global.num );
+
+				html += "</select>";
+
+				$main.html(html );
+
+				if (keyCode==13 && Global.unicocliente){
+					recogeClick();
+				}
+
+				return;
+			}
+	});
+}
+
+function recogeClick(){
+	var id =  $("#combo").val();
+	var name = Collection[ id ].name;
+
+	if ( window.opener.recogeSeleccion ){
+		window.opener.recogeSeleccion( id, name );
+	}
+}
+
+
+
+function postCarga(){
+
+
+	$("#cajaBuscandoContacto").keyup( ActualizarEstado );
+
+
+	$("#cajaBuscandoContacto").focus();
+
+}
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
+
+
+</patTemplate:tmpl>

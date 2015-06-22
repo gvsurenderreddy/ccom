@@ -1,0 +1,100 @@
+
+
+<form action='{MODNAME}.php' method='post'  id="validateMe">
+
+<input type='hidden' name='modo' value='{MODOEDICION}' />
+<input type='hidden' name='id_label' value='{IDLABEL}' />
+
+<table class="cajaedicion"  cellspacing='0' cellpadding='0' >
+<tr>
+<td valign='top'>
+
+<table width='100%'>
+<thead class="headListado">
+<th colspan="4" ><patTemplate:var name="modoediciontxt" modifier="html8"/></th></thead>
+
+<tr class="filaListado filaImpar">
+	<td class="col1"><patTemplate:T>Etiqueta</patTemplate:T></td>
+	<td colspan="2"><input  class='flat required' id="label" style='width: 20em' type='text' name='label'
+	value='{LABEL}'/></td>
+	<td ><select name="id_label_type">{COMBOTIPOETIQUETA}</select></td>
+</tr>
+
+<tr class="filaListado filaImpar">
+	<td class="col1"><patTemplate:T>Icono</patTemplate:T></td>
+
+	<td colspan="3">
+
+	<div>
+	<label for="selected">Icono actual:</label>
+	<span style="background-color: #eee;padding: 2px;padding-left: 6px;padding-right: 6px;margin-top: 8px">
+	<input type="hidden" name="icon" value="{ICON}" id="imagenSeleccionada2"/>
+	<input type="image" name="viewicon" onclick="return false" src="icons/{ICON}"  value=""  id="imagenSeleccionada"/> </span>
+	</div>
+	<div style="width: 400px;margin: 4px;margin-top: 8px;margin-bottom: 8px">
+	<patTemplate:tmpl name="list_entry">
+	<img src="icons/{ICON}" class="iconoejemplo"/>
+	</patTemplate:tmpl>
+	<div>
+   </td>
+</tr>
+
+
+
+<tr class="rematetabla">
+<td class="btncell"></td>
+<td colspan="4" class="btncell">
+ <input  class="btn ui-state-default ui-corner-all" value="Guardar cambios" type="submit" onclick="return ComprobarDatos()">
+ <input  class="btn ui-state-default ui-corner-all {CSSBTNREMOVE}" value="Eliminar" type="button" onclick="Eliminar()">
+ <input  class="btn ui-state-default ui-corner-all" value="Cancelar" type="button" onclick="location.href='{MODNAME}.php'">
+</td>
+</tr>
+
+</table>
+
+
+</td><td>
+
+
+</td></tr>
+</table>
+
+<script>
+
+
+function postCarga(){
+
+
+	$(".iconoejemplo").click( function(icono){
+		if (!$(icono).length) return;
+
+		var src = $(icono).attr("currentTarget");
+		if (!src) return;
+
+		var url = $(src).attr("src");
+		var dato = (new String(url)).replace("icons/","");
+
+		$("#imagenSeleccionada").attr("src", url );
+		$("#imagenSeleccionada2").attr("value", dato );
+	});
+
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>

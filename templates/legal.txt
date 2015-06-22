@@ -1,0 +1,95 @@
+
+
+
+<!-- <patTemplate:tmpl name="legal"> -->
+
+
+
+<!-- <div style="text-align: left"> -->
+
+<br style="clear:both;text-align: left;margin-bottom:81px" ></br>
+
+<div zid="legalline" id="footer"
+
+	zstyle="
+	position: fixed;
+	zbottom: 0px;
+	width: 100%;
+	min-width: 1024px;
+	top: expression( ( 0 - legalline.offsetHeight + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+"
+
+>
+<div class="subcontainerfoot">
+<p><b>(C) Copyright - 2010-2011 <a href="http://www.servicios-dpi.com">Servicios-DPI</a></b><br />
+Ecomm Server - Servidor de canales de comunicación para la empresa.
+</p>
+</div>
+</div>
+
+
+<style>
+
+body {
+
+ zoverflow: hidden;
+}
+
+html, body {height: 100%;}
+
+#wrap {min-height: 100%;}
+#root {min-height: 100%;}
+
+
+#main {overflow:auto;
+	padding-bottom: 80px;}  /* must be same height as the footer */
+
+#footer {
+	
+	position: relative;	
+	margin-top: -81px; /* negative value of footer height */
+	height: 80px;
+	clear:both;
+
+
+ background-color: #f4f4f4;
+  zmargin-left:0px;
+  zmargin-right: 0px;
+  zmin-height: 80px;
+  zpadding-left: 0px;
+  zpadding-right: 0px;
+  zpadding-left:  140px ;
+  zpadding-left:  40px ;
+  zpadding-top: 16px;
+  border-top: 1px solid #b2b2b2;
+  text-align: left;
+
+} 
+
+#footer p, #footer b {
+
+ 
+ font-size: 11px;
+ color: #bdbdbd;
+
+}
+
+
+#footer a {
+
+ color: #76c601;
+ text-decoration: none;
+}
+
+.subcontainerfoot {
+
+ margin: 4px;
+}
+
+
+</style>
+
+
+<!-- </div> -->
+
+<!-- </patTemplate> -->

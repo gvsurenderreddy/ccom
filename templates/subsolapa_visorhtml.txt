@@ -1,0 +1,20 @@
+
+<patTemplate:tmpl name="page">
+
+<table width="100%"  class="desolapa">
+
+<!--<tr><td class="colz1" width="80">Canal:</td><td><patTemplate:var name="channel" modifier="html8"/></td></tr></tr> -->
+
+	<tr><td class="colz1"><patTemplate:T>Asunto:</patTemplate:T></td><td class="dedato"><patTemplate:var name="title" modifier="html8"/></td></tr>
+	<tr><td class="colz1"><patTemplate:T>Buzón:</patTemplate:T></td><td class="dedato"><patTemplate:var name="from_to" modifier="html8"/></td></tr>
+	<tr><td class="colz1"><patTemplate:T>Fecha:</patTemplate:T></td><td class="dedato"><patTemplate:var name="date_cap" modifier="Fechahora"/></td></tr>
+
+<tr>
+    <td colspan='2' style='background-color: white;zpadding:2px;border-top:1px solid #ccc' valign='top'>
+	<patTemplate:var name="preview_html" />
+	</td>
+</tr>
+</td>
+</table>
+
+</patTemplate:tmpl>
